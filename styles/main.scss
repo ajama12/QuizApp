@@ -2,8 +2,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  align-items: left;
+  font-family: 'Mukta', sans-serif;
 
   background: rgb(163, 208, 219);
   background: linear-gradient(
@@ -16,3 +16,21 @@ body {
     rgba(163, 208, 219, 1) 100%
   );
 }
+
+header {
+  font-family: "Mukta", sans-serif;
+  font-size: 30px;
+  margin: 1em;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  background-color: rgb(3, 131, 252);
+  padding: 20px;
+}
+
+.header-buttons {
+  background-color: yellow;
+  padding: 10px;
+  border-radius: 4px;
+}
+
