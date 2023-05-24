@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS users CASCADE;
+CREATE TABLE Quiz (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES Users(id) ON DELETE CASCADE,
+    quiz_name VARCHAR(255) NOT NULL,
+    quiz_description TEXT,
+    is_private BOOLEAN NOT NULL DEFAULT FALSE
+);
