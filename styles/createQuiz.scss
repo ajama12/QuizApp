@@ -1,4 +1,9 @@
-h1 {
+body {
+  font-family: 'Mukta', sans-serif;
+  background-color: #fdecf5;
+}
+
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,7 +15,14 @@ h1 {
   position: fixed;
   z-index: 100;
   background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
-  padding: 0 20px; /* Add padding to header for spacing */
+  padding: 0 20px; 
+  font-family: 'Mukta', sans-serif;
+}
+
+h1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .quiz_content {
