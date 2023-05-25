@@ -12,13 +12,45 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/login.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
-</head>
 
+<!-- Special Font -->
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Mukta:wght@300&family=Source+Sans+Pro:ital,wght@1,600&display=swap" rel="stylesheet">
+
+</head>
 <body>
-  <h1>Have fun! 🥔</h1>
+  <header>
+    <h1>Quiz It!</h1>
+      <button type="submit">Logout</button>
+      <button type="submit">My Page</button>
+      <div class="profile-picture"></div>
+    </div>
+  </header>
+
+  <div class = "quiz-container">
+    <h2>Available Quizzes</h2>
+    <div class="quiz-row">
+      <button class="quiz-item">Quiz 1</button>
+      <button class="quiz-item">Quiz 2</button>
+      <button class="quiz-item">Quiz 3</button>
+    </div>
+    <div class="quiz-row">
+      <button class="quiz-item">Quiz 4</button>
+      <button class="quiz-item">Quiz 5</button>
+      <button class="quiz-item">Quiz 6</button>
+    </div>
+  </div>
+
+  <div class = "featured-container">
+    <h2>Recommended Quizzes</h2>
+      <div class="quiz-box">
+        <h2>Recommended Quiz 1</h2>
+        <h2>Recommended Quiz 2</h2>
+      </div>
+  </div>
 </body>
 
 </html>
