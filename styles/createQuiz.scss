@@ -1,0 +1,23 @@
+h1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quiz_content {
+  display: flex;
+  flex-flow: column wrap;
+  margin-top: 190px;
+  flex-direction: column;
+  background-color: bisque;
+  margin-right: 65%;
+}
+
+.quiz-questions {
+  display: flex;
+  margin-left: 35%;
+  background-color: red;
+  margin-top: 190px;
+}
+
+

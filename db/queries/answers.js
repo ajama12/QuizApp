@@ -7,6 +7,7 @@ const getAnswersByQuestionId = function(questionId) {
     WHERE question_id = $1`, [questionId])
     .then((result) => {
       if (result.rows.length > 0) {
+        console.log(result.rows);
         return result.rows;
       } else {
         return null;
