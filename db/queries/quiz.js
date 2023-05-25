@@ -17,11 +17,11 @@ const getAllQuizzes = function() {
     });
 };
 
-const getQuizById = function(id) {
+const getQuizByQuizId = function(quizId) {
   return db
     .query(`SELECT *
     FROM quiz
-    WHERE id = $1`, [id])
+    WHERE id = $1`, [quizId])
     .then((result) => {
       if (result.rows.length > 0) {
         return result.rows[0];
@@ -53,10 +53,10 @@ const getQuizzesByUserId = function(userId) {
     });
 };
 
-const addQuiz = function(user_id, quiz_name, quiz_description, is_private) {
+const addQuiz = function(userId, quizName, quizDesc, isPrivate) {
   return db
-    .query(`INSERT INTO quiz (user_id, quiz_name, quiz_description, is_private)
-    VALUES ($1, $2, $3, $4) RETURNING *`, [user_id, quiz_name, quiz_description, is_private])
+    .query(`INSERT INTO quiz (userId, quizName, quizDesc, isPrivate)
+    VALUES ($1, $2, $3, $4) RETURNING *`, [userId, quizName, quizDesc, isPrivate])
     .then((result) => {
       return result.rows[0];
     })
@@ -67,4 +67,4 @@ const addQuiz = function(user_id, quiz_name, quiz_description, is_private) {
 };
 
 
-module.exports = { getAllQuizzes, getQuizById, getQuizzesByUserId, addQuiz };
+module.exports = { getAllQuizzes, getQuizByQuizId, getQuizzesByUserId, addQuiz };
