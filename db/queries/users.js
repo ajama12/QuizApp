@@ -1,12 +1,5 @@
 const db = require('../connection');
 
-const getUsers = () => {
-  return db.query('SELECT * FROM users;')
-    .then(data => {
-      return data.rows;
-    });
-};
-
 const getUserByEmail = function(email) {
   return db
     .query(`SELECT *
@@ -25,11 +18,11 @@ const getUserByEmail = function(email) {
     });
 };
 
-const getUserById = function(id) {
+const getUserByUserId = function(userId) {
   return db
     .query(`SELECT *
     FROM users
-    WHERE id = $1`, [id])
+    WHERE id = $1`, [userId])
     .then((result) => {
       if (result.rows.length > 0) {
         return result.rows[0];
@@ -56,6 +49,6 @@ const addUser = function(username, password, email) {
     });
 };
 
-module.exports = { getUsers, getUserByEmail, getUserById, addUser };
+module.exports = { getUserByEmail, getUserByUserId, addUser };
 
 
