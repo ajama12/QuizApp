@@ -19,8 +19,6 @@ const getAnswersByQuestionId = function(questionId) {
     });
 };
 
-getAnswersByQuestionId(1);
-
 const getCorrectAnswer = function(questionId) {
   return db
     .query(`SELECT *
