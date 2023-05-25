@@ -1,12 +1,10 @@
 const express = require('express');
 const router  = express.Router();
-const {getUserByEmail} = require('./db/queries/users.js');
+const { getUserByEmail } = require('./db/queries/users.js');
+const { getHistoryByUserId } = require('./db/queries/history.js');
+const { getQuizzesByUserId } = require('./db/queries/quiz.js');
 
 
-//Load homepage
-router.get('/', (req, res) => {
-  res.render('index');
-});
 
 
 module.exports = router;

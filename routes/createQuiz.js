@@ -1,10 +1,12 @@
 const express = require('express');
 const router  = express.Router();
 
-//Load homepage
-router.get('/', (req, res) => {
+
+//load create quiz page
+router.get('/createQuiz', (req, res) => {
   res.render('createQuiz');
 });
+
 
 
 module.exports = router;
