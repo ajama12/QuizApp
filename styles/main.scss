@@ -1,42 +1,32 @@
 // body, header, form, button, logo,
 
-
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: left;
   font-family: 'Mukta', sans-serif;
-
-  background: rgb(163, 208, 219);
-  background: linear-gradient(
-    227deg,
-    rgba(163, 208, 219, 1) 0%,
-    rgba(163, 176, 219, 1) 20%,
-    rgba(163, 173, 219, 1) 34%,
-    rgba(163, 219, 208, 1) 59%,
-    rgba(163, 208, 219, 1) 74%,
-    rgba(163, 208, 219, 1) 100%
-  );
+  background-color: #fdecf5;
 }
 
 header {
-  font-family: "Mukta", sans-serif;
-  font-size: 30px;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  display: flex;
-  background-color: rgb(3, 131, 252);
-  padding: 10px;
-  background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+  top: 0px;
+  height: 120px;
+  width: 100%;
+  background-color: #00e1ff;
+  font-size: 60px;
+  position: fixed;
+  z-index: 100;
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png")
 }
 
-.header-buttons {
+button {
   display: flex;
-  gap: 10px;
-  background-color: rgb(0, 183, 255);
-  padding: 15px;
-  border-radius: 4px;
+  font-size: 0.5em;
+  color: white;
+  background-color: #000000;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .profile-picture {
@@ -44,8 +34,9 @@ header {
   height: 100px;
   background-image: url("https://www.shutterstock.com/image-vector/woman-profile-mascot-vector-illustration-600w-1943696413.jpg");
   background-size: cover;
-  background-position: center;
+  // background-position: center;
   border-radius: 10px;
+  // justify-content: space-between;
 }
 
 .quiz-container{
