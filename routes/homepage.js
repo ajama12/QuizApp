@@ -11,7 +11,20 @@ router.get('/', (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).send('Internal Server Error');
+      res.status(500).send('An error occured while retrieving quizzes');
+    });
+});
+
+//Load specific quiz
+router.get('/', (req, res) => {
+  getAllQuizzes()
+    .then((quizzes) => {
+      const templateVars = {quizzes};
+      res.render('index', templateVars);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send('An error occured while retrieving quizzes');
     });
 });
 

@@ -1,30 +1,32 @@
 const express = require('express');
 const router = express.Router();
-const {getUserByEmail} = require('./db/queries/users.js');
+const { getUserByEmail } = require('./db/queries/users.js');
 
-//load login page
+// load login page
 router.get('/login', (req, res) => {
   return res.render('login');
 });
 
-//login
-router.post('/login', (req, res) => {
+// //login
+router.post('/login/:id', (req, res) => {
   const email = req.body.email.trim();
   const password = req.body.password.trim();
   if (!email || !password) {
-    res.status(400).send('Empty field!');
+    return res.status(400).send('Empty field!');
   }
   const user = getUserByEmail(email);
   if (!user) {
-    res.status(400).send('Unauthorized access!');
+    return res.status(400).send('Unauthorized access!');
   }
   if (user) {
-    return res.redirect('/userProfile');
+  // Set the user ID in both session and cookies
+    req.session.userId = req.params.id;
+    return res.redirect(`/user/${req.params.id}`);
   }
 });
 
 //logout
-router.post('/logout', (res, req) => {
+router.post('/logout', (req, res) => {
   req.session = null;
   return res.redirect('/');
 });
