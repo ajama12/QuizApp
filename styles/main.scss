@@ -1,4 +1,4 @@
-// body, header, form, button, logo,
+// // body, header, form, button, logo,
 
 body {
   font-family: 'Mukta', sans-serif;
@@ -16,10 +16,17 @@ header {
   font-size: 60px;
   position: fixed;
   z-index: 100;
-  background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png")
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+  padding: 0 20px; /* Add padding to header for spacing */
 }
 
-button {
+.header-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center; /* Align buttons and profile picture vertically */
+}
+
+.header-buttons button {
   display: flex;
   font-size: 0.5em;
   color: white;
@@ -34,40 +41,40 @@ button {
   height: 100px;
   background-image: url("https://www.shutterstock.com/image-vector/woman-profile-mascot-vector-illustration-600w-1943696413.jpg");
   background-size: cover;
-  // background-position: center;
   border-radius: 10px;
-  // justify-content: space-between;
 }
 
-.quiz-container{
+.quiz-container {
   font-size: 25px;
   justify-content: space-between;
-  margin: 20px;
-
+  margin-bottom: 30px;
 }
 
-.featured-container{
+.featured-container {
   font-size: 25px;
   margin-left: auto;
-  position: absolute;
-  right: 15px;
-  top: 23%;
+  // // position: absolute;
+  // right: 15px;
+  // top: calc(23% + 30px); /* Adjust top position to create space */
   background-color: rgb(0, 238, 255);
   padding: 20px;
+  width: 40%;
 }
 
 .quiz-box {
-  display: flex;
-  flex-direction: column;
+
   gap: 10px;
   background-color: wheat;
-  padding: 5px;
+  padding: 20px;
+  margin-right: 30px;
+  width: 60%;
 }
 
 .quiz-row {
   display: flex;
-  gap: 20%;
+  gap: 30%;
   background-color: wheat;
+  margin-right: auto;
 }
 
 .quiz-item {
@@ -75,5 +82,4 @@ button {
   padding: 10px;
   border-radius: 4px;
   margin: 10px;
-
 }
