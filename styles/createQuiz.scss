@@ -1,0 +1,44 @@
+body {
+  font-family: 'Mukta', sans-serif;
+  background-color: #fdecf5;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0px;
+  height: 120px;
+  width: 100%;
+  background-color: #00e1ff;
+  font-size: 60px;
+  position: fixed;
+  z-index: 100;
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+  padding: 0 20px; 
+  font-family: 'Mukta', sans-serif;
+}
+
+h1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quiz_content {
+  display: flex;
+  flex-flow: column wrap;
+  margin-top: 190px;
+  flex-direction: column;
+  background-color: bisque;
+  margin-right: 65%;
+}
+
+.quiz-questions {
+  display: flex;
+  margin-left: 35%;
+  background-color: red;
+  margin-top: 190px;
+}
+
+
