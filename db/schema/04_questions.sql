@@ -2,5 +2,5 @@ DROP TABLE IF EXISTS questions CASCADE;
 CREATE TABLE questions (
   id SERIAL PRIMARY KEY,
   quiz_id INTEGER REFERENCES quiz(id) ON DELETE CASCADE,
-  questions_prompt TEXT NOT NULL,
+  questions_prompt TEXT NOT NULL
 );
