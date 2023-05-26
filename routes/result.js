@@ -34,7 +34,24 @@ const compareAnswers = (userAnswers, correctAnswers) => {
   };
 };
 
-//Load result page after quiz
+//Load result page
+router.get('/quizzes/:quizId/result', (req, res) => {
+  const quizId = req.params.quizId;
+
+//Filler data
+  const quizResults = {
+    score: 0,
+    correctCount: 0,
+    incorrectCount: 0,
+    totalQuestions: 0,
+  };
+
+  res.render('quizResults', {
+    quizResults,
+  });
+});
+
+//Result page after quiz
 router.post('/quizzes/:quizId/result', (req, res) => {
   const quizId = req.params.quizId;
   const userAnswers = req.body.answers;
