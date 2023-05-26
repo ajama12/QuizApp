@@ -32,7 +32,9 @@ router.post('/', (req, res) => {
         });
       });
     });
-    return res.status(201).send('Your quiz is ready!');
+    return res
+      .status(201).send('Your quiz is ready!')
+      .redirect('/');
   });
 });
 
