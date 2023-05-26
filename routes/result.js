@@ -22,8 +22,6 @@ router.get('/quizzes/:quizId/result', (req, res) => {
       res.status(500).send('Something went wrong while retrieving the quiz.');
     });
 });
-});
-
 
 //HELPERS
 const calcScore = (correctAnswers, totalQuestions) => {
