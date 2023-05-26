@@ -48,5 +48,8 @@ const addHistory = function(userId, quizId, recentScore) {
     });
 };
 
+// const calcHistory = function(
+
+// )
 
 module.exports = { getHistoryByUserId, getHistoryByQuizId, addHistory };

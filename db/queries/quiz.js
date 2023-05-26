@@ -66,5 +66,4 @@ const addQuiz = function(userId, quizName, quizDesc, isPrivate) {
     });
 };
 
-
 module.exports = { getAllQuizzes, getQuizByQuizId, getQuizzesByUserId, addQuiz };
