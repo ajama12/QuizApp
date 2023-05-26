@@ -20,8 +20,8 @@ router.post('/login/:id', (req, res) => {
   }
   if (user) {
   // Set the user ID in both session and cookies
-    req.session.userId = req.params.id;
-    return res.redirect(`/user/${req.params.id}`);
+    req.session.userId = req.params.user_id;
+    return res.redirect(`/user/${req.params.user_id}`);
   }
 });
 

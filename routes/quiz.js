@@ -11,7 +11,7 @@ router.get('/quizzes/:quiz_id', (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).send('An error occured while retrieving quizz');
+      res.status(500).send('An error occured while retrieving quiz.');
     });
 });
 
