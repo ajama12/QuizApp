@@ -1,5 +1,6 @@
 const express = require('express');
 const router  = express.Router();
+const { addQuiz, addQuestion, addAnswer } = require('../db/queries/quiz');
 
 //load create quiz page
 router.get('/createQuiz', (req, res) => {

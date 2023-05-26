@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-
+const { getQuizByQuizId } = require('../db/queries/quiz');
 
 //Load result page
 router.get('/quizzes/:quizId/result', (req, res) => {
