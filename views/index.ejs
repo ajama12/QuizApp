@@ -22,30 +22,72 @@
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Mukta:wght@300&family=Source+Sans+Pro:ital,wght@1,600&display=swap" rel="stylesheet">
 </head>
 
+
 <body>
-  <header>
-    <h1>Quiz It!</h1>
-    <div class="header-buttons">
-      <button type="submit">Logout</button>
-      <button type="submit">My Page</button>
-      <div class="profile-picture"></div>
-    </div>
-  </header>
-  <div class="quiz-container">
+
+  <%- include('partials/_header') %>
+  <section class="quiz-content">
+
     <div class="quiz-box">
       <h2>Available Quizzes</h2>
       <div class="quiz-row">
         <button class="quiz-item">Quiz 1</button>
         <button class="quiz-item">Quiz 2</button>
         <button class="quiz-item">Quiz 3</button>
+    </div>
+    <div class="quiz-row">
+      <button class="quiz-item">Quiz 4</button>
+      <button class="quiz-item">Quiz 5</button>
+      <button class="quiz-item">Quiz 6</button>
+    </div>
+    </div>
+  </section>
+  <main class="container">
+    <div class="featured-container1">
+      <!-- <aside class="featured-quiz"> -->
+
+        <div class="featured-overlay">
+          <h2>Featured Quizzes</h2>
+        </div>
+        <div class="quiz-box">
+          <button class="quiz-item">Featured Quiz 1</button>
+        </div>
+    </aside>
+    </div>
+
+    <div class="featured-container2">
+
+    </div>
+  </main>
+
+</body>
+
+</html>
+
+<!-- 
+  <section class="quiz-content">
+    <div class="header-buttons">
+      <button type="submit">Logout</button>
+      <button type="submit">My Page</button>
+      <div class="profile-picture"></div>
+    </div>
+
+    <div class="container">
+      <div class="quiz-box">
+        <h2>Available Quizzes</h2>
+        <div class="quiz-row">
+        <button class="quiz-item">Quiz 1</button>
+        <button class="quiz-item">Quiz 2</button>
+        <button class="quiz-item">Quiz 3</button>
       </div>
-      <div class="quiz-row">
+      <div class="container">
         <button class="quiz-item">Quiz 4</button>
         <button class="quiz-item">Quiz 5</button>
         <button class="quiz-item">Quiz 6</button>
       </div>
+      </div>
     </div>
-  </div>
+  </section>
 
   <div class="featured-container">
     <h2>Featured Quizzes</h2>
@@ -53,7 +95,4 @@
       <h2>Featured Quiz 1</h2>
       <h2>Featured Quiz 2</h2>
     </div>
-  </div>
-</body>
-
-</html>
+  </div> -->

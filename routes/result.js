@@ -1,7 +1,31 @@
 const express = require('express');
 const router = express.Router();
+const { getQuizByQuizId } = require('../db/queries/quiz');
+const { getQuestionsByQuizId } = require('../db/queries/questions');
+const { getCorrectAnswer } = require('../db/queries/answers');
 
-//Helpers
+//Load result page
+router.get('/quizzes/:quizId/result', (req, res) => {
+  const quizId = req.params.quizId;
+
+  getQuizByQuizId(quizId)
+    .then((quiz) => {
+      if (!quiz) {
+        // Quiz not found
+        res.status(404).send('Quiz does not exist!');
+      } else {
+        res.render('quizResults', {
+          quiz,
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send('Something went wrong while retrieving the quiz.');
+    });
+});
+
+//HELPERS
 const calcScore = (correctAnswers, totalQuestions) => {
   if (totalQuestions === 0) {
     throw new Error('No questions in the quiz.');
@@ -11,6 +35,7 @@ const calcScore = (correctAnswers, totalQuestions) => {
   }
 };
 
+//Compare user answers with correct answers
 const compareAnswers = (userAnswers, correctAnswers) => {
   let correctCount = 0;
   let incorrectCount = 0;
@@ -34,46 +59,43 @@ const compareAnswers = (userAnswers, correctAnswers) => {
   };
 };
 
-//Load result page
-router.get('/quizzes/:quizId/result', (req, res) => {
-  const quizId = req.params.quizId;
-
-//Filler data
-  const quizResults = {
-    score: 0,
-    correctCount: 0,
-    incorrectCount: 0,
-    totalQuestions: 0,
-  };
-
-  res.render('quizResults', {
-    quizResults,
-  });
-});
-
 //Result page after quiz
 router.post('/quizzes/:quizId/result', (req, res) => {
   const quizId = req.params.quizId;
   const userAnswers = req.body.answers;
+
+  let comparisonResult;
 
   getQuizByQuizId(quizId)
     .then((quiz) => {
       if (!quiz) {
         res.status(404).send('Quiz does not exist!');
       } else {
-        const correctAnswers = quiz.questions.map((question) => question.correctAnswer);
+        getQuestionsByQuizId(quizId)
+          .then((questions) => {
+            const questionId = questions.map((question) => question.id);
+            return getCorrectAnswer(questionId);
+          })
+          .then((correctAnswers) => {
+            comparisonResult = compareAnswers(userAnswers, correctAnswers);
+            const { totalQuestions, correctCount, incorrectCount } = comparisonResult;
 
-        const comparisonResult = compareAnswers(userAnswers, correctAnswers);
-        const { totalQuestions, correctCount, incorrectCount } = comparisonResult;
+            const score = calcScore(correctCount, totalQuestions);
 
-        const score = calcScore(correctCount, totalQuestions);
-
-        res.status(200).send({ score, correctCount, incorrectCount, totalQuestions });
+            res.render('quizResults', {
+              score,
+              correctCount,
+              incorrectCount,
+              totalQuestions,
+            });
+          });
       }
     })
     .catch((err) => {
-      res.status(500).send('Something went wrong while processing the quiz result.');
+      console.log(err);
+      throw err;
     });
 });
+
 
 module.exports = router;
