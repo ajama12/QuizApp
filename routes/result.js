@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { getQuizByQuizId } = require('../db/queries/quiz');
 const { getQuestionsByQuizId } = require('../db/queries/questions');
-const { getCorrectAnswer } = require('../db/queries/answers');
+const { getCorrectAnswers } = require('../db/queries/answers');
 
 //Load result page
 router.get('/quizzes/:quizId/result', (req, res) => {
@@ -73,8 +73,8 @@ router.post('/quizzes/:quizId/result', (req, res) => {
       } else {
         getQuestionsByQuizId(quizId)
           .then((questions) => {
-            const questionId = questions.map((question) => question.id);
-            return getCorrectAnswer(questionId);
+            const questionIds = questions.map((question) => question.id);
+            return getCorrectAnswers(quizId, questionIds);
           })
           .then((correctAnswers) => {
             comparisonResult = compareAnswers(userAnswers, correctAnswers);
