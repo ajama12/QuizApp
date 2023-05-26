@@ -1,8 +1,8 @@
 const express = require('express');
 const router  = express.Router();
-const { getUserByUserId } = require('./db/queries/users.js');
-const { getHistoryByUserId } = require('./db/queries/history.js');
-const { getQuizzesByUserId } = require('./db/queries/quiz.js');
+const { getUserByUserId } = require('../db/queries/users.js');
+const { getHistoryByUserId } = require('../db/queries/history.js');
+const { getQuizzesByUserId } = require('../db/queries/quiz.js');
 
 //load user profile page
 router.get('/user/:user_id', (req, res) => {

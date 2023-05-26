@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getUserByEmail } = require('./db/queries/users.js');
+const { getUserByEmail } = require('../db/queries/users.js');
 
 // load login page
 router.get('/login', (req, res) => {
