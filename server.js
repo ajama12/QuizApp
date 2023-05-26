@@ -28,11 +28,12 @@ app.use(express.static('public'));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require('./routes/users-api');
-const widgetApiRoutes = require('./routes/widgets-api');
-const usersRoutes = require('./routes/users');
+const homepageRoutes = require('./routes/homepage');
+const resultRoutes = require('./routes/result');
+const userRoutes = require('./routes/user');
 const loginRoutes = require('./routes/login');
-const createQuizRoutes = require('./routes/createQuiz')
+const createQuizRoutes = require('./routes/createQuiz');
+const quizRoutes = require('./routes/createQuiz')
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
