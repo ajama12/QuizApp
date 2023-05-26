@@ -6,7 +6,7 @@ const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const cookieSession = require('cookie-session')
+const cookieSession = require('cookie-session');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -18,7 +18,7 @@ app.set('view engine', 'ejs');
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser())
+app.use(bodyParser());
 app.use(
   cookieSession({
     name: "user-session",
@@ -40,19 +40,19 @@ app.use(express.static('public'));
 // Note: Feel free to replace the example routes below with your own
 const homepageRoutes = require('./routes/homepage');
 const resultRoutes = require('./routes/result');
-const usersRoutes = require('./routes/user');
+const userRoutes = require('./routes/user');
 const loginRoutes = require('./routes/login');
 const createQuizRoutes = require('./routes/createQuiz');
-const quizRoutes = require('./routes/createQuiz')
+const quizRoutes = require('./routes/quiz');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 // app.use('/api/users', userApiRoutes);
 // app.use('/api/widgets', widgetApiRoutes);
-app.use('/users', usersRoutes);
+app.use('/users', userRoutes);
 app.use('/login', loginRoutes);
-app.use('/createQuiz', createQuizRoutes)
+app.use('/createQuiz', createQuizRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -66,3 +66,4 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+

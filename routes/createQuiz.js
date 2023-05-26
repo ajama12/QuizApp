@@ -3,12 +3,12 @@ const router  = express.Router();
 const { addQuiz, addQuestion, addAnswer } = require('../db/queries/quiz');
 
 //load create quiz page
-router.get('/createQuiz', (req, res) => {
+router.get('/', (req, res) => {
   res.render('createQuiz');
 });
 
 //Create a new quiz
-router.post('/createQuiz', (req, res) => {
+router.post('/', (req, res) => {
   addQuiz(req.body.userId, req.body.quizName, req.body.quizDesc, req.body.isPrivate, (err, result) => {
     if (err) {
       console.log(err);

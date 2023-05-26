@@ -3,7 +3,7 @@ const router = express.Router();
 const { getQuizByQuizId } = require('../db/queries/quiz');
 
 //Load specific quiz
-router.get('/quizzes/:quiz_id', (req, res) => {
+router.get('/:quiz_id', (req, res) => {
   getQuizByQuizId(req.params.quiz_id)
     .then((quiz) => {
       const templateVars = {quiz};

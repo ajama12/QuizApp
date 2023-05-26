@@ -10,13 +10,11 @@ router.get('/', (req, res) => {
 //login
 router.post('/', async(req, res) => {
   const email = req.body.email;
-console.log(email, "hi");
   const password = req.body.password;
   if (!email || !password) {
     return res.status(400).send('Empty field!');
   }
   const user = await getUserByEmail(email);
-  console.log(user, "user");
   if (!user) {
     return res.status(400).send('Unauthorized access!');
   }
@@ -27,11 +25,6 @@ console.log(email, "hi");
   }
 });
 
-//logout
-router.post('/logout', (req, res) => {
-  req.session = null;
-  return res.redirect('/');
-});
 
 module.exports = router;
 
