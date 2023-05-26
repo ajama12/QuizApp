@@ -1,6 +1,7 @@
 // // body, header, form, button, logo,
 
 body {
+  display: flex;
   font-family: 'Mukta', sans-serif;
   background-color: #fdecf5;
 }
@@ -13,27 +14,24 @@ header {
   height: 120px;
   width: 100%;
   background-color: #00e1ff;
-  font-size: 60px;
   position: fixed;
   z-index: 100;
   background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
   padding: 0 20px; /* Add padding to header for spacing */
 }
 
-.header-buttons {
-  display: flex;
-  gap: 10px;
-  align-items: center; /* Align buttons and profile picture vertically */
+
+.logo {
+  font-size: 70px;
+  font-family: 'Mukta', sans-serif;
+  border: none;
+  background: none;
+
 }
 
-.header-buttons button {
+.create-quiz-button {
   display: flex;
-  font-size: 0.5em;
-  color: white;
-  background-color: #000000;
-  border-radius: 10px;
-  justify-content: space-between;
-  align-items: center;
+  font-family: 'Mukta', sans-serif;
 }
 
 .profile-picture {
@@ -44,42 +42,80 @@ header {
   border-radius: 10px;
 }
 
-.quiz-container {
-  font-size: 25px;
+.header-buttons {
+  display: flex;
+  font-size: 35px;
   justify-content: space-between;
-  margin-bottom: 30px;
+
 }
 
-.featured-container {
+.header-title {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 25px;
-  margin-left: auto;
-  margin-top: -365px;
-  background-color: rgb(0, 238, 255);
-  padding: 20px;
-  width: 40%;
-
-}
-
-.quiz-box {
-  background-color: wheat;
-  padding: 20px;
-  margin-top: 120px;
-  width: 60%;
-}
-
-.quiz-row {
-  display: flex;
-  gap: 30%;
-  background-color: wheat;
-  margin-right: auto;
-}
-
-.quiz-item {
-  background-color: #eaeaea;
+  gap: 10px;
   padding: 10px;
-  border-radius: 4px;
-  margin: 10px;
+  align-items: center;
 }
+
+.header-title button {
+  display: flex;
+  font-size: 0.5em;
+  color: white;
+  background-color: #000000;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+//MOVE EVERYTHING TO LAYOUT.SCSS AFTER
+// .quiz-content {
+//   display: flex;
+//   justify-content: space-evenly;
+//   background-color: wheat;
+//   padding: 20px;
+//   margin-top: 120px;
+//   width: 60%;
+// }
+
+// .quiz-row {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+//   padding: 40px;
+//   gap: 40%;
+// }
+
+// .quiz-item {
+//   text-align: "center";
+//   display: flex;
+//   font-size: 50px;
+// }
+
+// .quiz-box {
+//   text-align: center
+
+// }
+
+
+// .container {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   font-size: 25px;
+//   margin-top: 120px;
+//   background-color: rgb(0, 238, 255);
+//   padding: 20px;
+//   width: 40%;
+// }
+
+// .featured-container1 {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   gap: 20px;
+// }
+
+// .quiz-row button {
+//   display: flex;
+//   padding: 40px;
+// }
+
