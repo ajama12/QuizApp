@@ -22,7 +22,7 @@ const addQuestion = function(quizId, questionPrompt) {
   return db
     .query(`INSERT INTO questions (quiz_id, question_prompt) VALUES ($1, $2) RETURNING *`, [quizId, questionPrompt])
     .then((result) => {
-      return result.rows[0];
+      return result;
     })
     .catch((err) => {
       console.log(err);
