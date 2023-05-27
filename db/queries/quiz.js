@@ -55,7 +55,7 @@ const getQuizzesByUserId = function(userId) {
 
 const addQuiz = function(userId, quizName, quizDesc, isPrivate) {
   return db
-    .query(`INSERT INTO quiz (userId, quizName, quizDesc, isPrivate)
+    .query(`INSERT INTO quiz (user_id, quiz_name, quiz_desc, is_private)
     VALUES ($1, $2, $3, $4) RETURNING *`, [userId, quizName, quizDesc, isPrivate])
     .then((result) => {
       return result.rows[0];

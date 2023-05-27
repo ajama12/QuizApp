@@ -18,13 +18,11 @@ const getQuestionsByQuizId = function(quizId) {
     });
 };
 
-console.log(getQuestionsByQuizId(1));
-
 const addQuestion = function(quizId, questionPrompt) {
   return db
     .query(`INSERT INTO questions (quiz_id, question_prompt) VALUES ($1, $2) RETURNING *`, [quizId, questionPrompt])
     .then((result) => {
-      return result;
+      return result.rows[0];
     })
     .catch((err) => {
       console.log(err);
