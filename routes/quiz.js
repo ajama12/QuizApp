@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { getQuizByQuizId } = require('../db/queries/quiz');
 
-//Load specific quiz
-router.get('/:quiz_id', async(req, res) => {
+//Load specific quiz page
+router.get('/', async(req, res) => {
   await getQuizByQuizId(req.params.quiz_id)
     .then((quiz) => {
       const templateVars = {quiz};
