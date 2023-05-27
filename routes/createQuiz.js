@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 });
 
 //Create a new quiz
-router.post('/createQuiz', (req, res) => {
+router.post('/', (req, res) => {
   addQuiz(req.body.userId, req.body.quizName, req.body.quizDesc, req.body.isPrivate, (err, result) => {
     if (err) {
       console.log(err);
@@ -32,7 +32,9 @@ router.post('/createQuiz', (req, res) => {
         });
       });
     });
-    return res.status(201).send('Your quiz is ready!');
+    return res
+      .status(201).send('Your quiz is ready!')
+      .redirect('/');
   });
 });
 

@@ -5,7 +5,7 @@ const { getHistoryByUserId } = require('../db/queries/history.js');
 const { getQuizzesByUserId } = require('../db/queries/quiz.js');
 
 //load user profile page
-router.get('/user/:user_id', (req, res) => {
+router.get('/:user_id', (req, res) => {
   const templateVars = {};
   getUserByUserId(req.params.user_id)
     .then((user) => {
