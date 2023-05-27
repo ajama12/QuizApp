@@ -3,7 +3,7 @@ const router = express.Router();
 const { getUserByEmail } = require('../db/queries/users.js');
 
 // load login page
-router.get('/login', (req, res) => {
+router.get('/', (req, res) => {
   return res.render('login');
 });
 
