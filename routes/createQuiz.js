@@ -16,20 +16,25 @@ router.post('/', async(req, res) => {
   try {
     const quizResult = await addQuiz(req.body.userId, req.body.quizName, req.body.quizDesc, req.body.isPrivate);
     const quizId = quizResult.id;
+    console.log(quizResult);
+    console.log(quizId);
 
-    for (let question of req.body.questions) {
+    for (const question of req.body.questions) {
       const questionResult = await addQuestion(quizId, question.questionPrompt);
       const questionId = questionResult.id;
+      console.log(question);
 
-      for (let answer of question.answers) {
+      for (const answer of question.answers) {
         await addAnswer(quizId, questionId, answer.answer, answer.isCorrect);
+        console.log(answer);
       }
     }
 
     res.status(201).send('Your quiz is ready!');
   } catch (err) {
     console.log(err);
-    res.status(500).send('Something went wrong while creating your quiz.');
+    throw err;
+    // res.status(500).send('Something went wrong while creating your quiz.');
   }
 });
 
