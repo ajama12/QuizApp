@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 });
 
 //Create a new quiz
-router.post('/', async (req, res) => {
+router.post('/', async(req, res) => {
   try {
     const quizResult = await addQuiz(req.body.userId, req.body.quizName, req.body.quizDesc, req.body.isPrivate);
     const quizId = quizResult.id;
