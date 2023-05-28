@@ -18,6 +18,7 @@ const getAllQuizzes = function() {
 };
 
 const getQuizByQuizId = function(quizId) {
+  // console.log("testing, reached db");
   return db
     .query(`SELECT *
     FROM quiz

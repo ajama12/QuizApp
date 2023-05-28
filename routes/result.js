@@ -14,6 +14,7 @@ router.get('/:quizId', (req, res) => {
         // Quiz not found
         res.status(404).send('Quiz does not exist!');
       } else {
+        console.log("hitting the correct place");
         res.render('quizResults', {
           quiz,
         });
