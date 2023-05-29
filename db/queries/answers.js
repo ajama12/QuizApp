@@ -25,10 +25,11 @@ const getCorrectAnswers = function(quizId, questionIds) {
       .query(`SELECT *
       FROM answers
       WHERE quiz_id = $1
-      AND questions_id = $2
+      AND question_id = $2
       AND is_correct = true`, [quizId, questionId])
       .then((result) => {
         if (result.rows.length > 0) {
+          console.log("result.rows[0]", result.rows[0]);
           return result.rows[0];
         } else {
           return null;

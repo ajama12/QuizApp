@@ -1,0 +1,54 @@
+//Styles for the quiz.ejs page
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0px;
+  height: 120px;
+  width: 100%;
+  background-color: #00e1ff;
+  font-size: 60px;
+  position: fixed;
+  z-index: 100;
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+  padding: 0 20px;
+  font-family: 'Mukta', sans-serif;
+}
+
+.page-content {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 100px;
+  padding: 20px;
+  background: rgb(0, 255, 119);
+}
+
+.question-form {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-family: 'Mukta', sans-serif;
+  background-color: bisque;
+}
+
+.quiz-questions {
+  display: flex;
+  flex-direction: column;
+  margin-left: 70px;
+  background: rgb(0, 238, 255);
+  padding: 20px;
+  width: 1320px;
+}
+.page-form {
+  display: flex;
+  flex-direction: column;
+}
+
+// button[for="quiz_description1"]  {
+//   font-size: 35px;
+// }
+
+// label[for="quiz_answer1"]  {
+//   border-style: solid;
+// }

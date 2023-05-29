@@ -1,39 +1,39 @@
 const express = require('express');
 const router  = express.Router();
-const { addQuiz, addQuestion, addAnswer } = require('../db/queries/quiz');
+const { addQuiz } = require('../db/queries/quiz.js');
+const { addQuestion } = require('../db/queries/questions.js');
+const { addAnswer } = require('../db/queries/answers.js');
+
+
 
 //load create quiz page
 router.get('/', (req, res) => {
   res.render('createQuiz');
 });
 
-// Create a new quiz
-router.post('/createQuiz', (req, res) => {
-  addQuiz(req.body.userId, req.body.quizName, req.body.quizDesc, req.body.isPrivate, (err, result) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).send('Something went wrong while creating your quiz.');
+//Create a new quiz
+router.post('/', async(req, res) => {
+  try {
+    const quizResult = await addQuiz(req.body.userId, req.body.quizName, req.body.quizDesc, req.body.isPrivate);
+    const quizId = quizResult.id;
+
+    for (let question of req.body.questions) {
+      const questionResult = await addQuestion(quizId, question.questionPrompt);
+      const questionId = questionResult.id;
+
+      for (let answer of question.answers) {
+        await addAnswer(quizId, questionId, answer.answer, answer.isCorrect);
+      }
     }
-    const quizId = result.id;
-    req.body.questions.forEach(question => {
-      addQuestion(quizId, question.questionPrompt, (err, result) => {
-        if (err) {
-          console.log(err);
-          return res.status(500).send('Something went wrong when adding your question.');
-        }
-        const questionId = result.id;
-        question.answers.forEach(answer => {
-          addAnswer(quizId, questionId, answer.answer, answer.isCorrect, (err, result) => {
-            if (err) {
-              console.log(err);
-              return res.status(500).send('Something went wrong while adding your answer.');
-            }
-          });
-        });
-      });
-    });
-    return res.status(201).send('Your quiz is ready!');
-  });
+
+    res
+      .status(201)
+      .redirect("/quiz/" + quizId);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Something went wrong while creating your quiz.');
+  }
 });
+
 
 module.exports = router;

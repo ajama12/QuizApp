@@ -7,29 +7,24 @@ router.get('/', (req, res) => {
   return res.render('login');
 });
 
-// //login
-router.post('/login/:id', (req, res) => {
-  const email = req.body.email.trim();
-  const password = req.body.password.trim();
+//login
+router.post('/', async(req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
   if (!email || !password) {
-    return res.status(400).send('Empty field!');
+    return res.status(400).send('Empty field.');
   }
-  const user = getUserByEmail(email);
+  const user = await getUserByEmail(email);
   if (!user) {
-    return res.status(400).send('Unauthorized access!');
+    return res.status(400).send('Unauthorized access.');
   }
   if (user) {
   // Set the user ID in both session and cookies
-    req.session.userId = req.params.user_id;
-    return res.redirect(`/user/${req.params.user_id}`);
+    req.session.userId = user.id;
+    return res.redirect(`/user/${user.id}`);
   }
 });
 
-//logout
-router.post('/logout', (req, res) => {
-  req.session = null;
-  return res.redirect('/');
-});
 
 module.exports = router;
 

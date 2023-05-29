@@ -1,0 +1,50 @@
+header {
+  font-size: 60px;
+  font-family: 'Mukta', sans-serif;
+}
+
+.page-content {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 120px;
+  padding: 20px;
+  background: rgb(0, 255, 119);
+}
+
+.page-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 290px;
+  height: 553px;
+  background: rgb(0, 81, 255);
+  padding-top: 20px;
+}
+
+.myQuiz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 755px;
+  height: 553px;
+  background: rgb(127, 156, 220);
+}
+
+.quizHistory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 450px;
+  height: 553px;
+  background: rgb(190, 60, 175);
+}
+
+.page-content button {
+  display: flex;
+  color: white;
+  background-color: #000000;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 25px;
+}

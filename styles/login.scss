@@ -7,6 +7,20 @@
   justify-content: center;
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
-  margin-left: 30px;
+}
+
+.page-content {
+  display: flex;
+  align-items: center;
+  margin-top: 120px;
+  padding: 20px;
+  background: rgb(160, 186, 244);
+  justify-content: center;
+  flex-direction: column;
+  width: 100%
+}
+
+body {
+  display: flex;
+  justify-content: center;
 }
