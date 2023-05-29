@@ -17,6 +17,7 @@
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
+  <script defer src="/scripts/homepage.js"></script>
 
 <!-- Special Font -->
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Mukta:wght@300&family=Source+Sans+Pro:ital,wght@1,600&display=swap" rel="stylesheet">
@@ -27,19 +28,9 @@
 
   <%- include('partials/_header') %>
   <section class="quiz-content">
-
     <div class="quiz-box">
       <h2>Available Quizzes</h2>
-      <div class="quiz-row">
-        <button class="quiz-item">Quiz 1</button>
-        <button class="quiz-item">Quiz 2</button>
-        <button class="quiz-item">Quiz 3</button>
-    </div>
-    <div class="quiz-row">
-      <button class="quiz-item">Quiz 4</button>
-      <button class="quiz-item">Quiz 5</button>
-      <button class="quiz-item">Quiz 6</button>
-    </div>
+      <div class="quiz-container" id="quiz-container"></div>>
     </div>
   </section>
   <main class="container">
@@ -64,7 +55,7 @@
 
 </html>
 
-<!-- 
+<!--
   <section class="quiz-content">
     <div class="header-buttons">
       <button type="submit">Logout</button>
