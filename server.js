@@ -43,6 +43,7 @@ const quizRoutes = require('./routes/createQuiz')
 app.use('/users', usersRoutes);
 app.use('/login', loginRoutes)
 app.use('/createQuiz', createQuizRoutes)
+app.use('/result', resultRoutes)
 // Note: mount other resources here, using the same pattern above
 
 // Home page
