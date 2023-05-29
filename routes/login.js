@@ -12,11 +12,11 @@ router.post('/', async(req, res) => {
   const email = req.body.email;
   const password = req.body.password;
   if (!email || !password) {
-    return res.status(400).send('Empty field!');
+    return res.status(400).send('Empty field.');
   }
   const user = await getUserByEmail(email);
   if (!user) {
-    return res.status(400).send('Unauthorized access!');
+    return res.status(400).send('Unauthorized access.');
   }
   if (user) {
   // Set the user ID in both session and cookies
