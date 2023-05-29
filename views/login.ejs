@@ -4,22 +4,35 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="/styles/login.css">
-
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/login.css" />
+  <!-- Special Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Mukta:wght@300&family=Source+Sans+Pro:ital,wght@1,600&display=swap" rel="stylesheet">
+  <title>QuizIt Login</title>
 </head>
-<body>
 
-  <div class = "login">
-    <section id = "login-box">
-      <h1>Login Page</h1>
+<body>
+  <header>
+    <form action="/" method="GET">
+      <button class="logo">QuizIt</button>
+    </form>
+  </header>
+
+  <section class="page-content">
+    <h1>Login Page</h1>
+    <div class="page-form">
       <h2>Email Address</h2>
       <input type = "email" name = "email">
       <h2>Password</h2>
       <input type = "password" name = "password">
-      <button id="login-button" type="submit">Login</button>
-    </section>
-  </div>
-  
+      <form action="/" method="GET">
+        <button class="header-buttons">Login</button>
+      </form>
+    </div>
+
+  </section>
+
 </body>
 </html>
