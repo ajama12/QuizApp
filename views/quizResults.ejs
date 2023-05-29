@@ -1,9 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <link rel="stylesheet" href="/styles/result.css" />
+  <title>Results Page</title>
+</head>
 <body>
 
-<h1>Quiz Results Page</h1>
-<p>just using this for route testing!</p>
+<%- include('partials/_header') %>
+
+  <section class="page-content">
+
+    <div class="page-form">
+      <div class="quiz-questions">
+        <h1>Quiz Results</h1>
+        <h2>Questions Details</h2>
+
+        <label for="quiz_description1">Question Description 1</label>
+        <button type="submit" id="submit">Answer Choice 1</button>
+        <button type="submit" id="submit">Answer Choice 2</button>
+        <button type="submit" id="submit">Answer Choice 3</button>
+
+        <label for="quiz_description1">Question Description 2</label>
+        <button type="submit" id="submit">Answer Choice 1</button>
+        <button type="submit" id="submit">Answer Choice 2</button>
+        <button type="submit" id="submit">Answer Choice 3</button>
+
+        <label for="quiz_description1">Question Description 3</label>
+        <button type="submit" id="submit">Answer Choice 1</button>
+        <button type="submit" id="submit">Answer Choice 2</button>
+        <button type="submit" id="submit">Answer Choice 3</button>
+
+        <label for="quiz_description1">Question Description 4</label>
+        <button type="submit" id="submit">Answer Choice 1</button>
+        <button type="submit" id="submit">Answer Choice 2</button>
+        <button type="submit" id="submit">Answer Choice 3</button>
+
+      </div>
+      <div class="result-buttons">
+        <h1>Results: 3/4 = 75%</h1>
+        <button type="submit" id="submit">Share</button>
+      </div>
+    </div>
+
+
+
+
+  </section>
+
 
 </body>
 </html>
