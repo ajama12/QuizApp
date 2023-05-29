@@ -18,7 +18,7 @@ router.get('/:user_id', (req, res) => {
     })
     .then((quizzes) => {
       templateVars.quizzes = quizzes;
-      return res.render('userProfile', templateVars);
+      return res.render('users', templateVars);
     })
     .catch((err) => {
       console.log(err);
