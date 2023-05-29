@@ -14,7 +14,6 @@ router.get('/:quizId', (req, res) => {
         // Quiz not found
         res.status(404).send('Quiz does not exist!');
       } else {
-        console.log("hitting the correct place");
         res.render('quizResults', {
           quiz,
         });
@@ -90,12 +89,12 @@ router.post('/:quizId', (req, res) => {
           })
           .then((correctAnswers) => {
             comparisonResult = compareAnswers(userAnswers, correctAnswers);
-            console.log("CR", comparisonResult);
+            //console.log("CR", comparisonResult);
             const { totalQuestions, correctCount, incorrectCount } = comparisonResult;
 
             const score = calcScore(correctCount, totalQuestions);
 
-            console.log(score);
+            //console.log(score);
 
             res.render('quizResults', {
               score,
