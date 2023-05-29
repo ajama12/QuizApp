@@ -5,24 +5,25 @@ const { getQuestionsByQuizId } = require('../db/queries/questions');
 const { getCorrectAnswers } = require('../db/queries/answers');
 
 //Load result page
-router.get('/quizzes/:quizId/result', (req, res) => {
-  const quizId = req.params.quizId;
+router.get('/', (req, res) => {
+  return res.render('result');
+  // const quizId = req.params.quizId;
 
-  getQuizByQuizId(quizId)
-    .then((quiz) => {
-      if (!quiz) {
-        // Quiz not found
-        res.status(404).send('Quiz does not exist!');
-      } else {
-        res.render('quizResults', {
-          quiz,
-        });
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).send('Something went wrong while retrieving the quiz.');
-    });
+  // getQuizByQuizId(quizId)
+  //   .then((quiz) => {
+  //     if (!quiz) {
+  //       // Quiz not found
+  //       res.status(404).send('Quiz does not exist!');
+  //     } else {
+  //       res.render('quizResults', {
+  //         quiz,
+  //       });
+  //     }
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     res.status(500).send('Something went wrong while retrieving the quiz.');
+  //   });
 });
 
 //HELPERS
