@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 const { getQuizByQuizId } = require('../db/queries/quiz');
 
-//Load specific quiz
-router.get('/quizzes/:quiz_id', (req, res) => {
-  getQuizByQuizId(req.params.quiz_id)
+//Load specific quiz page
+router.get('/:quizId', (req, res) => {
+  getQuizByQuizId(req.params.quizId)
     .then((quiz) => {
+      // console.log(quiz);
       const templateVars = {quiz};
       res.render('quiz', templateVars);
     })

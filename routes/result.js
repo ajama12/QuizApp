@@ -5,9 +5,8 @@ const { getQuestionsByQuizId } = require('../db/queries/questions');
 const { getCorrectAnswers } = require('../db/queries/answers');
 
 //Load result page
-router.get('/', (req, res) => {
-  return res.render('result');
-  // const quizId = req.params.quizId;
+router.get('/:quizId', (req, res) => {
+  const quizId = req.params.quizId;
 
   // getQuizByQuizId(quizId)
   //   .then((quiz) => {
@@ -41,13 +40,23 @@ const compareAnswers = (userAnswers, correctAnswers) => {
   let correctCount = 0;
   let incorrectCount = 0;
 
-  userAnswers.forEach((userAnswer, index) => {
-    const correctAnswer = correctAnswers[index];
+  // console.log("CA", correctAnswers);
+  // console.log("UA", userAnswers);
 
-    if (userAnswer === correctAnswer) {
-      correctCount++;
-    } else {
-      incorrectCount++;
+  userAnswers.forEach((userAnswer) => {
+    const correspondingCorrectAns = correctAnswers.find((correctAnswer) => {
+      // console.log("CAQI", correctAnswer.question_id);
+      // console.log("UAQI", userAnswer.question_id);
+      return correctAnswer.question_id === userAnswer.question_id;
+    });
+    // console.log("CCA", correspondingCorrectAns);
+    // console.log("UA", userAnswers);
+    if (correspondingCorrectAns) {
+      if (userAnswer.answer === correspondingCorrectAns.answer) {
+        correctCount++;
+      } else {
+        incorrectCount++;
+      }
     }
   });
 
@@ -60,8 +69,9 @@ const compareAnswers = (userAnswers, correctAnswers) => {
   };
 };
 
-//Result page after quiz
-router.post('/quizzes/:quizId/result', (req, res) => {
+
+// Result page after quiz
+router.post('/:quizId', (req, res) => {
   const quizId = req.params.quizId;
   const userAnswers = req.body.answers;
 
@@ -79,9 +89,12 @@ router.post('/quizzes/:quizId/result', (req, res) => {
           })
           .then((correctAnswers) => {
             comparisonResult = compareAnswers(userAnswers, correctAnswers);
+            //console.log("CR", comparisonResult);
             const { totalQuestions, correctCount, incorrectCount } = comparisonResult;
 
             const score = calcScore(correctCount, totalQuestions);
+
+            //console.log(score);
 
             res.render('quizResults', {
               score,
@@ -89,6 +102,10 @@ router.post('/quizzes/:quizId/result', (req, res) => {
               incorrectCount,
               totalQuestions,
             });
+          })
+          .catch((err) => {
+            console.log(err);
+            throw err;
           });
       }
     })
@@ -100,3 +117,4 @@ router.post('/quizzes/:quizId/result', (req, res) => {
 
 
 module.exports = router;
+
