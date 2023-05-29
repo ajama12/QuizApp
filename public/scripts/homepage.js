@@ -1,5 +1,3 @@
-const { getAllQuizzes } = require("../../db/queries/quiz");
-
 $(document).ready(() => {
 
   //create quiz template
@@ -15,57 +13,34 @@ $(document).ready(() => {
   const quizzesContainer = $("#quiz-container");
 
   //create box for each quiz
-  const createQuizBox = (data) => {
+  const createQuizBox = (quizzesData) => {
     quizzesContainer.empty();
-    data.forEach((quiz) => {
+    console.log(quizzesData);
+    quizzesData.forEach((quiz) => {
       quizzesContainer.append(createQuiz(quiz));
     });
   };
 
-  //function to populate quiz boxes
+  //ajax request to grab info from backend and populate boxes
   const getQuizData = () => {
-    getAllQuizzes()
-      .then(quizzes.map((quiz) => {
-        return quiz.question_name;
-      }))
-      .then((quizName) => {
-        return createQuizBox(quizName);
-      })
-      .catch((err) => {
-        console.log("Populating quiz box failed", err);
-      });
+    const config = {
+      method: "GET",
+      url: "/",
+      success: (quizzes) => {
+        console.log("Successfully retrieved quizzes");
+        console.log(quizzes);
+
+        const quizzesObj = JSON.parse(quizzes);
+        console.log(quizzesObj);
+        createQuizBox(quizzesObj);
+      },
+      error: (err) => {
+        console.log("Err", err);
+      }
+    };
+    $.ajax(config);
   };
 
   getQuizData();
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });
