@@ -7,8 +7,8 @@ router.get('/', (req, res) => {
   getAllQuizzes()
     .then((quizzes) => {
       const templateVars = {quizzes};
-      console.log(quizzes);
-      console.log(typeof quizzes);
+      // console.log(quizzes);
+      // console.log(typeof quizzes);
       res.render('index', templateVars);
     })
     .catch((err) => {

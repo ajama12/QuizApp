@@ -7,7 +7,7 @@ router.post('/', (req, res) => {
   req.session = null;
 
   //console.log("session cleared, redirecting");
-  return res.redirect('/');
+  res.redirect('/');
 });
 
 module.exports = router;
