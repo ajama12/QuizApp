@@ -2,7 +2,6 @@ $(document).ready(() => {
 
   //create quiz template
   const createQuiz = (quiz) => {
-    console.log("Hi");
     return `
   <div class="quiz-row">
       <button class="quiz-item">${quiz.quiz_name}</button>
@@ -25,13 +24,12 @@ $(document).ready(() => {
   const getQuizData = () => {
     const config = {
       method: "GET",
-      url: "/",
+      url: "/api/quizzes",
       success: (quizzes) => {
         console.log("Successfully retrieved quizzes");
-        console.log(quizzes);
-
+        // console.log(quizzes);
         const quizzesObj = JSON.parse(quizzes);
-        console.log(quizzesObj);
+        // console.log(quizzesObj);
         createQuizBox(quizzesObj);
       },
       error: (err) => {
