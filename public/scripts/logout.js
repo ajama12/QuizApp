@@ -16,7 +16,7 @@ $(document).ready(() => {
       method: "GET",
       url: "/login/userActive",
       success: (user) => {
-        console.log("Successfully retrieved user", user);
+        // console.log("Successfully retrieved user", user);
         updateUserButton(user);
       },
       error: (err) => {

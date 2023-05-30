@@ -26,4 +26,17 @@ router.get('/:user_id', (req, res) => {
     });
 });
 
+//get user id
+router.get("/getUserId/:user_id", (req, res) => {
+  console.log("hi");
+  if (req.session.userId) {
+    const user = getUserByUserId(req.params.user_id);
+    const userStr = JSON.stringify(user);
+    res.status(200).send(userStr);
+  } else {
+    res.status.apply(401).send(null);
+  }
+});
+
+
 module.exports = router;
