@@ -16,11 +16,15 @@ router.post('/', async(req, res) => {
   }
   const user = await getUserByEmail(email);
   if (!user) {
+    console.log("Test1");
     return res.status(400).send('Unauthorized access.');
   }
+
   if (user) {
+    console.log("test");
   // Set the user ID in both session and cookies
     req.session.userId = user.id;
+    console.log(req.session.userId);
     return res.redirect(`/user/${user.id}`);
   }
 });
