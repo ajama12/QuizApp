@@ -26,7 +26,9 @@ router.post('/', async(req, res) => {
       }
     }
 
-    res.status(201).send('Your quiz is ready!');
+    res
+      .status(201)
+      .redirect("/quiz/" + quizId);
   } catch (err) {
     console.log(err);
     res.status(500).send('Something went wrong while creating your quiz.');
