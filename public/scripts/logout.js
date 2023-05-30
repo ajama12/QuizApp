@@ -31,7 +31,8 @@ $(document).ready(() => {
   checkLoggedInStatus();
 
   //when button is clicked
-  logButton.click(() => {
+  logButton.click((event) => {
+    event.preventDefault();
     //user is logged in
     if (logButton.html() === "Log Out") {
       $.ajax({
@@ -43,16 +44,15 @@ $(document).ready(() => {
       });
     } else {
       //user is logged out
-      $.ajax({
-        url: '/login',
-        method: 'GET',
-        success: () => {
-          logButton.empty().html('Log In');
+      // $.ajax({
+      //   url: '/login',
+      //   method: 'GET',
+      //   success: () => {
           location.href = '/login';
         }
       });
-    }
+   // }
   });
-});
+// });
 
 
