@@ -44,15 +44,9 @@ $(document).ready(() => {
       });
     } else {
       //user is logged out
-      // $.ajax({
-      //   url: '/login',
-      //   method: 'GET',
-      //   success: () => {
-          location.href = '/login';
-        }
-      });
-   // }
+      location.href = '/login';
+    }
   });
-// });
+});
 
 
