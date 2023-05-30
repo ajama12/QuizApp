@@ -26,10 +26,10 @@ $(document).ready(() => {
       method: "GET",
       url: "/api/quizzes",
       success: (quizzes) => {
-        console.log("Successfully retrieved quizzes");
-        console.log("ajax quizzes", quizzes);
+        // console.log("Successfully retrieved quizzes");
+        // console.log("ajax quizzes", quizzes);
         const quizzesObj = JSON.parse(quizzes);
-        console.log("ajax parsed", quizzesObj);
+        // console.log("ajax parsed", quizzesObj);
         createQuizBox(quizzesObj);
       },
       error: (err) => {
