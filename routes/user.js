@@ -34,7 +34,7 @@ router.get("/getUserId/:user_id", (req, res) => {
     const userStr = JSON.stringify(user);
     res.status(200).send(userStr);
   } else {
-    res.status.apply(401).send(null);
+    res.status(401).send(null);
   }
 });
 
