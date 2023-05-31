@@ -5,7 +5,7 @@ $(document).ready(() => {
   const userId = $("#user-id").data('userId');
 
   //create user info template
-  const userInfo = function (user) {
+  const userInfo = function(user) {
     return `
         <h1>${user.username}</h1>
         <h1>${user.email}</h1>
@@ -14,8 +14,8 @@ $(document).ready(() => {
 
   const userInfoBox = $("#user-info-box");
 
+  //ajax request to get user
   const getUserInfo = () => {
-    console.log("reaching getUserInfo");
     const config = {
       method: "GET",
       url: `/user/getUserId/${userId}`,
@@ -33,25 +33,46 @@ $(document).ready(() => {
 
   };
 
+  //create history template
+  const createHistoryInfo = function(history) {
+    return `
+    <p> Quiz: ${history.quiz_name} </p>
+    <p> Percentage: ${history.recent_score}%</p>
+      `;
+  };
+
+  const quizHistoryContainer = $("#quiz-history-container");
+
+  //create sepereate history lines
+  const createHistoryBox = (history) => {
+    quizHistoryContainer.empty();
+    history.forEach((score) => {
+      quizHistoryContainer.append(createHistoryInfo(score));
+    });
+  };
+
+  //ajax request to get history
+  const fetchUserHistory = () => {
+    const config = {
+      method: "GET",
+      url: `/user/getUserHistory/${userId}`,
+      success: (history) => {
+        console.log("Successfully retrieved user history");
+        console.log(history);
+        const userHistory = JSON.parse(history);
+        createHistoryBox(userHistory);
+      },
+      error: (err) => {
+        console.log("Err", err);
+      }
+    };
+    $.ajax(config);
+
+  };
+
   getUserInfo();
+
+  fetchUserHistory();
 
 });
 
-
-
-// $(() => {
-//   $('#fetch-users').on('click', () => {
-//     $.ajax({
-//       method: 'GET',
-//       url: '/api/users'
-//     })
-//     .done((response) => {
-//       const $usersList = $('#users');
-//       $usersList.empty();
-
-//       for(const user of response.users) {
-//         $(`<li class="user">`).text(user.name).appendTo($usersList);
-//       }
-//     });
-//   });
-// });
