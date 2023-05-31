@@ -2,12 +2,14 @@
 
 $(document).ready(() => {
 
-//create user info template
-  const userInfo = function(user) {
+  const userId = $("#user-id").data('userId');
+
+  //create user info template
+  const userInfo = function (user) {
     return `
-      <h1>${user.username}</h1>
-      <h1>${user.email}</h1>
-    `;
+        <h1>${user.username}</h1>
+        <h1>${user.email}</h1>
+      `;
   };
 
   const userInfoBox = $("#user-info-box");
@@ -16,9 +18,10 @@ $(document).ready(() => {
     console.log("reaching getUserInfo");
     const config = {
       method: "GET",
-      url: `/getUserId/${userId}`,
+      url: `/user/getUserId/${userId}`,
       success: (user) => {
         console.log("Successfully retrieved user");
+        console.log(user);
         const userObj = JSON.parse(user);
         userInfoBox.empty().append(userInfo(userObj));
       },

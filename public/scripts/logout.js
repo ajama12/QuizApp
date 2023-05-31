@@ -40,6 +40,7 @@ $(document).ready(() => {
         method: 'POST',
         success: () => {
           logButton.empty().html('Log In');
+          location.href = '/';
         },
       });
     } else {
