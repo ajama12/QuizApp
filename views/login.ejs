@@ -23,13 +23,13 @@
   <section class="page-content">
     <h1>Login Page</h1>
     <div class="page-form">
-      <h2>Email Address</h2>
-      <input type = "email" name = "email">
-      <h2>Password</h2>
-      <input type = "password" name = "password">
-      <form action="/" method="GET">
-        <button class="header-buttons">Login</button>
-      </form>
+      <form method="POST" action="/login" id="loginForm">
+        <h2>Email Address</h2>
+          <input type = "email" name = "email" id="email">
+        <h2>Password</h2>
+          <input type = "password" name = "password" id="password">
+        <button type="submit" id="submit" class="header-buttons">Login</button>
+     </form>
     </div>
 
   </section>
