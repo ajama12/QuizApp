@@ -3,9 +3,9 @@ $(document).ready(() => {
   //create quiz template
   const createQuiz = (quiz) => {
     return `
-  <div class="quiz-row">
-      <button class="quiz-item">${quiz.quiz_name}</button>
-  </div>
+      <div class="quiz-row">
+          <button class="quiz-item" id="quiz-item" onclick="location.href='/quiz/${quiz.id}'">${quiz.quiz_name}</button>
+      </div>
   `;
   };
 
@@ -26,10 +26,10 @@ $(document).ready(() => {
       method: "GET",
       url: "/api/quizzes",
       success: (quizzes) => {
-        console.log("Successfully retrieved quizzes");
-        console.log("ajax quizzes", quizzes);
+        // console.log("Successfully retrieved quizzes");
+        // console.log("ajax quizzes", quizzes);
         const quizzesObj = JSON.parse(quizzes);
-        console.log("ajax parsed", quizzesObj);
+        // console.log("ajax parsed", quizzesObj);
         createQuizBox(quizzesObj);
       },
       error: (err) => {
