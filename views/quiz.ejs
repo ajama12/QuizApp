@@ -13,37 +13,51 @@
       <div class="page-form">
         <h1>Name Of Quiz</h1>
         <h2>By: Author Name </h2>
-        <button type="button"" id="submit">Submit Quiz</button>
+        <form action="/quiz" method="POST" class="submit">
+        <button type="button" id="submit">Submit Quiz</button>
       </div>
 
 
       <div class="quiz-questions">
         <h2>Questions Details</h2>
 
-        <label for="quiz_description1">Question Description 1</label>
-        <div class="question-choices">
-          <button type="submit" id="submit">Answer Choice 1</button>
-          <button type="submit" id="submit">Answer Choice 2</button>
+        <div class="question-1">
+        <label for="quiz_description1">Question Description 1</label><br>
+
+            <input type="radio" name="question1" id="Q1Answer1">
+            <label for="answer1">Answer 1</label>
+            <input type="radio" name="question1" id="Q1Answer2">
+            <label for="answer1">Answer 2</label>
         </div>
 
+        <div class="question-2">
         <label for="quiz_description1">Question Description 2</label>
-        <div class="question-choices">
-          <button type="submit" id="submit">Answer Choice 1</button>
-          <button type="submit" id="submit">Answer Choice 2</button>
+        <br>
+          <input type="radio" name="question2" id="Q2Answer1">
+            <label for="answer1">Answer 1</label>
+            <input type="radio" name="question2" id="Q2Answer2">
+            <label for="answer1">Answer 2</label>
         </div>
 
-        <label for="quiz_description1">Question Description 3</label>
-        <div class="question-choices">
-          <button type="submit" id="submit">Answer Choice 1</button>
-          <button type="submit" id="submit">Answer Choice 2</button>
+        <div class="question-3">
+          <label for="quiz_description1">Question Description 3</label><br>
+          <input type="radio" name="question3" id="Q3Answer1">
+            <label for="answer1">Answer 1</label>
+            <input type="radio"  name="question3" id="Q3Answer2">
+            <label for="answer1">Answer 2</label>
+
         </div>
 
-        <label for="quiz_description1">Question Description 4</label>
-        <div class="question-choices">
-          <button type="submit" id="submit">Answer Choice 1</button>
-          <button type="submit" id="submit">Answer Choice 2</button>
-        </div>
+        <div class="question-3">
+        <label for="quiz_description1">Question Description 4</label><br>
 
+          <input type="radio" name="question4" id="Q4Answer1">
+            <label for="answer1">Answer 1</label>
+            <input type="radio" name="question4" id="Q4Answer2">
+            <label for="answer1">Answer 2</label>
+        </div>
+        </div>
+        </form>
       </div>
     </section>
   </body>

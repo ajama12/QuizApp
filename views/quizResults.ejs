@@ -11,46 +11,84 @@
 <body>
 
 <%- include('partials/_header') %>
+<section class="page-content">
+  <div class="quiz-questions">
+    <h2>Questions Details</h2>
 
-  <section class="page-content">
+    <div class="question-1">
+    <label for="quiz_description1">Question Description 1</label><br>
 
-    <div class="page-form">
-      <div class="quiz-questions">
-        <h1>Quiz Results</h1>
-        <h2>Questions Details</h2>
+        <input type="radio" name="question1" id="Q1Answer1">
+        <label for="answer1">Answer 1</label>
+        <input type="radio" name="question1" id="Q1Answer2">
+        <label for="answer1">Answer 2</label>
+    </div>
 
-        <label for="quiz_description1">Question Description 1</label>
-        <button type="submit" id="submit">Answer Choice 1</button>
-        <button type="submit" id="submit">Answer Choice 2</button>
-        <button type="submit" id="submit">Answer Choice 3</button>
+    <div class="question-2">
+    <label for="quiz_description1">Question Description 2</label>
+    <br>
+      <input type="radio" name="question2" id="Q2Answer1">
+        <label for="answer1">Answer 1</label>
+        <input type="radio" name="question2" id="Q2Answer2">
+        <label for="answer1">Answer 2</label>
+    </div>
 
-        <label for="quiz_description1">Question Description 2</label>
-        <button type="submit" id="submit">Answer Choice 1</button>
-        <button type="submit" id="submit">Answer Choice 2</button>
-        <button type="submit" id="submit">Answer Choice 3</button>
+    <div class="question-3">
+      <label for="quiz_description1">Question Description 3</label><br>
+      <input type="radio" name="question3" id="Q3Answer1">
+        <label for="answer1">Answer 1</label>
+        <input type="radio"  name="question3" id="Q3Answer2">
+        <label for="answer1">Answer 2</label>
 
-        <label for="quiz_description1">Question Description 3</label>
-        <button type="submit" id="submit">Answer Choice 1</button>
-        <button type="submit" id="submit">Answer Choice 2</button>
-        <button type="submit" id="submit">Answer Choice 3</button>
+    </div>
 
-        <label for="quiz_description1">Question Description 4</label>
-        <button type="submit" id="submit">Answer Choice 1</button>
-        <button type="submit" id="submit">Answer Choice 2</button>
-        <button type="submit" id="submit">Answer Choice 3</button>
+    <div class="question-3">
+    <label for="quiz_description1">Question Description 4</label><br>
 
+      <input type="radio" name="question4" id="Q4Answer1">
+        <label for="answer1">Answer 1</label>
+        <input type="radio" name="question4" id="Q4Answer2">
+        <label for="answer1">Answer 2</label>
+    </div>
+
+    <div class="result-buttons">
+      <h1>Results: 3/4 = 75%</h1>
+      <button type="submit" id="submit">Share</button>
+    </div>
+    </div>
+    </form>
+  </div>
+</section>
+</body>
+</html>
+
+
+
+        <!-- <div class="question-1">
+          <label for="quiz_description1">Question Description 1</label>
+          <br>
+            <button type="submit" id="submit">Answer Choice 1</button>
+            <button type="submit" id="submit">Answer Choice 2</button>
+        </div>
+
+        <div class="question-2">
+          <label for="quiz_description1">Question Description 2</label>
+          <button type="submit" id="submit">Answer Choice 1</button>
+          <button type="submit" id="submit">Answer Choice 2</button>
+        </div>
+
+        <div class="question-3">
+          <label for="quiz_description1">Question Description 3</label>
+          <button type="submit" id="submit">Answer Choice 1</button>
+          <button type="submit" id="submit">Answer Choice 2</button>
+        </div>
+
+        <div class="question-4">
+          <label for="quiz_description1">Question Description 4</label>
+          <button type="submit" id="submit">Answer Choice 1</button>
+          <button type="submit" id="submit">Answer Choice 2</button>
+        </div>
       </div>
       <div class="result-buttons">
         <h1>Results: 3/4 = 75%</h1>
-        <button type="submit" id="submit">Share</button>
-      </div>
-    </div>
-
-
-
-
-  </section>
-
-
-</body>
-</html>
+        <button type="submit" id="submit">Share</button> -->

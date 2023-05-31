@@ -23,31 +23,38 @@ h2 {
 
 .page-content {
   display: flex;
-  margin-top: 100px;
-  padding: 20px;
+  margin-top: 120px;
 }
 
 .question-form {
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  background: rgb(0, 81, 255);
+  width: 25%;
   font-size: 20px;
-  font-family: 'Mukta', sans-serif;
-  background-color: bisque;
 }
 
 .quiz-questions {
   display: flex;
   flex-direction: column;
-  margin-left: 175%;
   background-color: rgb(0, 238, 255);
   padding: 20px;
+  width: 1320px;
+  align-items: center;
 }
 
 label[for="quiz_description1"]  {
   font-size: 35px;
+  margin-top: 10px;
 }
 
 label[for="quiz_answer1"]  {
   border-style: solid;
+}
+
+input[name="quiz_description1"] {
+  width: 480px;
+  border-radius: 7px;
 }
 
