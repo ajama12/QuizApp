@@ -12,7 +12,6 @@ header {
   flex-direction: column;
   font-size: 20px;
   font-family: 'Mukta', sans-serif;
-  background-color: bisque;
 }
 
 .quiz-questions {
@@ -20,7 +19,6 @@ header {
   flex-direction: column;
   align-items: center;
   margin-top: 120px;
-  background: rgb(0, 238, 255);
   padding: 20px;
   width: 1534px;
   height: 100%;
@@ -32,7 +30,6 @@ header {
 
 .result-buttons {
   display: flex;
-  background: rgb(0, 238, 255);
   margin-right: 20px;
   padding: 20px;
   gap: 20px;
@@ -49,6 +46,13 @@ header {
   font-size: 20px;
   font-weight: bold;
 
+}
+
+.page-content {
+  display: flex;
+  margin: 200px;
+  padding: 20px;
+  // border: 2px solid black;
 }
 
 h2 {
