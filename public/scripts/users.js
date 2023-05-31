@@ -43,11 +43,11 @@ $(document).ready(() => {
 
   const quizHistoryContainer = $("#quiz-history-container");
 
-  //create sepereate history lines
+  //create seperate history lines
   const createHistoryBox = (history) => {
     quizHistoryContainer.empty();
-    history.forEach((score) => {
-      quizHistoryContainer.append(createHistoryInfo(score));
+    history.forEach((historyInfo) => {
+      quizHistoryContainer.append(createHistoryInfo(historyInfo));
     });
   };
 
@@ -60,7 +60,39 @@ $(document).ready(() => {
         console.log("Successfully retrieved user history");
         console.log(history);
         const userHistory = JSON.parse(history);
+        console.log(userHistory);
         createHistoryBox(userHistory);
+      },
+      error: (err) => {
+        console.log("Err", err);
+      }
+    };
+    $.ajax(config);
+
+  };
+
+  const myQuizzesContainer = $("#my-quizzes-container");
+
+  //add created quizzes to profile
+  const createUserQuizBox = (quizzes) => {
+    myQuizzesContainer.empty();
+    quizzes.forEach((quiz) => {
+      const button = `<button class="quiz-item" id="quiz-item" onclick="location.href='/quiz/${quiz.id}'">${quiz.quiz_name}</button>`;
+      myQuizzesContainer.append(button);
+    });
+  };
+
+  //ajax request to get quizzes
+  const getUserQuizzes = () => {
+    const config = {
+      method: "GET",
+      url: `/user/getUserQuizzes/${userId}`,
+      success: (quizzes) => {
+        console.log("Successfully retrieved user quizzes");
+        console.log(quizzes);
+        const userQuizzes = JSON.parse(quizzes);
+        console.log(quizzes);
+        createUserQuizBox(userQuizzes);
       },
       error: (err) => {
         console.log("Err", err);
@@ -74,5 +106,9 @@ $(document).ready(() => {
 
   fetchUserHistory();
 
+  getUserQuizzes();
+
 });
+
+
 
