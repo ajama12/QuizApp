@@ -1,12 +1,14 @@
 .login {
   justify-content: center;
   display: flex;
+
 }
 
 #login-box {
   justify-content: center;
   display: flex;
   flex-direction: column;
+  
 }
 
 .page-content {
@@ -14,13 +16,29 @@
   align-items: center;
   margin-top: 120px;
   padding: 20px;
-  background: rgb(160, 186, 244);
+  background-color: #9ae9f3;
   justify-content: center;
   flex-direction: column;
-  width: 100%
+  width: 100%;
+  border: 2px solid black;
 }
 
 body {
   display: flex;
   justify-content: center;
 }
+
+.login-button {
+  gap: 20px;
+  display: flex;
+}
+
+#loginForm {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
