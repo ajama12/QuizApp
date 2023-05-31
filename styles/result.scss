@@ -1,3 +1,7 @@
+body {
+  font-size: 20px;
+}
+
 header {
   font-size: 60px;
   font-family: 'Mukta', sans-serif;
@@ -14,9 +18,12 @@ header {
 .quiz-questions {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-top: 120px;
   background: rgb(0, 238, 255);
   padding: 20px;
-  width: 1320px;
+  width: 1534px;
+  height: 100%;
 }
 .page-form {
   display: flex;
@@ -29,6 +36,7 @@ header {
   margin-right: 20px;
   padding: 20px;
   gap: 20px;
+  align-items: center;
 }
 
 .result-buttons button {
@@ -41,4 +49,12 @@ header {
   font-size: 20px;
   font-weight: bold;
 
+}
+
+h2 {
+  font-size: 30px;
+}
+
+label[for="quiz_description1"]  {
+  font-size: 20px;
 }
