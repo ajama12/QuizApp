@@ -12,6 +12,7 @@
 </head>
 
 <body>
+  <meta id="user-id" data-user-id="<%= user.id %>">
 <%- include('partials/_header') %>
   <section class="page-content">
     <div class="page-form">
@@ -20,19 +21,17 @@
       </div>
     </div>
 
-    <div class="myQuiz">
-      <h1>My Quizzes</h1>
-      <button type="submit" id="submit">Name Recently Attempted Quiz</button>
-
+    <div class="container">
+      <div class="quiz-box">
+        <h2>My Quizzes</h2>
+        <div class="quiz-row" id="my-quizzes-container"></div>
+      </div>
     </div>
 
     <div class="quizHistory">
       <h1>My Quiz History</h1>
-      <button type="submit" id="submit">Quiz 1 History</button>
-      <button type="submit" id="submit">Quiz 1 History</button>
+      <div class="quiz-history-container" id="quiz-history-container"></div>
     </div>
-
-
 
 
   </section>

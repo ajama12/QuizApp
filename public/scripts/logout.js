@@ -20,7 +20,7 @@ $(document).ready(() => {
         updateUserButton(user);
       },
       error: (err) => {
-        console.log("Err", err);
+        console.log("Not logged in", err);
       }
     };
 
@@ -40,6 +40,7 @@ $(document).ready(() => {
         method: 'POST',
         success: () => {
           logButton.empty().html('Log In');
+          location.href = '/';
         },
       });
     } else {

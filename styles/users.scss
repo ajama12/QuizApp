@@ -5,10 +5,9 @@ header {
 
 .page-content {
   display: flex;
-  align-items: flex-start;
-  margin-top: 120px;
+  margin: 200px;
   padding: 20px;
-  background: rgb(0, 255, 119);
+  border: 2px solid black  ;
 }
 
 .page-form {
@@ -17,7 +16,6 @@ header {
   align-items: center;
   width: 290px;
   height: 553px;
-  background: rgb(0, 81, 255);
   padding-top: 20px;
 }
 
@@ -27,7 +25,7 @@ header {
   align-items: center;
   width: 755px;
   height: 553px;
-  background: rgb(127, 156, 220);
+  gap: 20px;
 }
 
 .quizHistory {
@@ -36,7 +34,7 @@ header {
   align-items: center;
   width: 450px;
   height: 553px;
-  background: rgb(190, 60, 175);
+  gap: 20px;
 }
 
 .page-content button {

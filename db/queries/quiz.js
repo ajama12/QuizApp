@@ -17,6 +17,24 @@ const getAllQuizzes = function() {
     });
 };
 
+const getQuizByUserId = function(userId) {
+  return db
+    .query(`SELECT *
+  FROM quiz
+  WHERE user_id = $1`, [userId])
+    .then((result) => {
+      if (result.rows.length > 0) {
+        return result.rows;
+      } else {
+        return null;
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      throw err;
+    });
+};
+
 const getQuizByQuizId = function(quizId) {
   // console.log("testing, reached db");
   return db
@@ -68,4 +86,4 @@ const addQuiz = function(userId, quizName, quizDesc, isPrivate) {
     });
 };
 
-module.exports = { getAllQuizzes, getQuizByQuizId, getQuizzesByUserId, addQuiz };
+module.exports = { getAllQuizzes, getQuizByQuizId, getQuizzesByUserId, addQuiz, getQuizByUserId };
