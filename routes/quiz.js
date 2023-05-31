@@ -17,7 +17,6 @@ router.get('/:quizId', (req, res) => {
     });
 });
 
-
 // //Post new quiz to its own link
 // router.post('/:quizId', (req, res) => {
 //   getQuizByQuizId(req.params.quizId)

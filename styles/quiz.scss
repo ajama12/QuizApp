@@ -34,7 +34,6 @@ header {
 .quiz-questions {
   display: flex;
   flex-direction: column;
-  margin-left: 70px;
   background: rgb(0, 238, 255);
   padding: 20px;
   width: 1320px;
@@ -45,7 +44,7 @@ header {
   flex-direction: column;
   padding: 20px;
   background: rgb(0, 81, 255);
-  padding-top: 20px;
+  width: 25%;
 }
 
 section {
@@ -58,6 +57,7 @@ section {
 //   font-size: 35px;
 // }
 
-// label[for="quiz_answer1"]  {
+// label[for="quiz_description1"]  {
 //   border-style: solid;
+//   font-size: 10px;
 // }
