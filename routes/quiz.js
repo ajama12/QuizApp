@@ -17,19 +17,6 @@ router.get('/:quizId', (req, res) => {
     });
 });
 
-router.post('/:quizId', (req, res) => {
-  getCorrectAnswers()
-    .then((quiz_id) => {
-      const stringifyQuizzes = JSON.stringify(quiz_id);
-      console.log(stringifyQuizzes)
-      return stringifyQuizzes
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).send('An error occurred while retrieving quizzes.');
-    });
-})
-
 // //Post new quiz to its own link
 // router.post('/:quizId', (req, res) => {
 //   getQuizByQuizId(req.params.quizId)

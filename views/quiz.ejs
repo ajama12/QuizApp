@@ -9,12 +9,13 @@
 </head>
 <body>
   <%- include('partials/_header') %>
+    <form action="/quiz" method="POST" id="quizForm">
     <section class="page-content">
       <div class="page-form">
         <h1>Name Of Quiz</h1>
         <h2>By: Author Name </h2>
-        <form action="/quiz" method="POST" class="submit">
-        <button type="button" id="submit">Submit Quiz</button>
+
+        <button type="button" id="submitQuiz">Submit Quiz</button>
       </div>
 
 
@@ -57,9 +58,12 @@
             <label for="answer1">Answer 2</label>
         </div>
         </div>
-        </form>
+
+
+        </section>  
+      </form>
+      
       </div>
-    </section>
   </body>
 </html>
 
