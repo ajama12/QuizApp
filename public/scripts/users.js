@@ -57,10 +57,9 @@ $(document).ready(() => {
       method: "GET",
       url: `/user/getUserHistory/${userId}`,
       success: (history) => {
-        console.log("Successfully retrieved user history");
-        console.log(history);
+        // console.log("Successfully retrieved user history");
         const userHistory = JSON.parse(history);
-        console.log(userHistory);
+        // console.log(userHistory);
         createHistoryBox(userHistory);
       },
       error: (err) => {

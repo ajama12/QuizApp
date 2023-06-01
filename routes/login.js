@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getUserByEmail, getUserByUserId} = require('../db/queries/users.js');
+const { getUserByEmail, getUserByUserId } = require('../db/queries/users.js');
 
 // load login page
 router.get('/', (req, res) => {
@@ -31,13 +31,15 @@ router.post('/', async(req, res) => {
 });
 
 //get route for checking if user is logged in
+<<<<<<< HEAD
+router.get('/userActive', async(req, res) => {
+=======
 router.get('/userActive', async (req, res) => {
   // console.log("hitting userActive route");
   // console.log(req.session.userId);
+>>>>>>> 1a9d630c022a1a7146d6566871c2f45d4fde34a2
   const userId = await getUserByUserId(req.session.userId);
   if (userId) {
-    // console.log("hitting if statement");
-    // console.log(userId);
     res.status(200).send(userId);
   } else {
     res.status(401).send(null);
