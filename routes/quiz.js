@@ -16,6 +16,7 @@ router.get('/:quizId', (req, res) => {
     ]
   ).then(async all => {
     const quiz = all[1];
+    console.log("quiz", quiz);
     const justQuestions = all[0];
     const questions = [];
     for (const question of justQuestions) {
@@ -38,5 +39,9 @@ router.get('/:quizId', (req, res) => {
     res.status(500).send('An error occured while retrieving quiz.');
   });
 });
+
+router.post('/:quizId', (req, res) => {
+  res.render(`/result/${req.params.quizId}`);
+})
 
 module.exports = router;
