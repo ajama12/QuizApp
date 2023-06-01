@@ -7,7 +7,6 @@ const { getAnswersByQuestionId } = require('../db/queries/answers');
 //Load specific quiz page
 router.get('/:quizId', (req, res) => {
   // call query for getting list of questions by quiz id
-  // const questions = getQuestionsbyquizID()
 
   Promise.all(
     [
@@ -16,12 +15,13 @@ router.get('/:quizId', (req, res) => {
 
     ]
   ).then(async all => {
-    const quiz = all[1]
-    const justQuestions = all[0]
-    const questions = []
+    const quiz = all[1];
+    console.log("quiz", quiz);
+    const justQuestions = all[0];
+    const questions = [];
     for (const question of justQuestions) {
-      const answersOfSpecificQuestion = await getAnswersByQuestionId(question.id)
-      console.log("answersOfSpecificQuestion", answersOfSpecificQuestion)
+      const answersOfSpecificQuestion = await getAnswersByQuestionId(question.id);
+      console.log("answersOfSpecificQuestion", answersOfSpecificQuestion);
       questions.push({
         ...question,
         answers: answersOfSpecificQuestion
@@ -39,5 +39,9 @@ router.get('/:quizId', (req, res) => {
     res.status(500).send('An error occured while retrieving quiz.');
   });
 });
+
+router.post('/:quizId', (req, res) => {
+  res.render(`/result/${req.params.quizId}`);
+})
 
 module.exports = router;
