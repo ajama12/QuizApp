@@ -24,18 +24,14 @@ router.post('/', async(req, res) => {
     }
     req.session.userId = user.id;
 
-    // console.log(req.session);
-    // console.log("User ID:", req.session.userId);
-
     return res.redirect(`/user/${user.id}`);
   } catch (error) {
-    // console.log(error);
     return res.status(500).send('An error occurred.');
   }
 });
 
 //get route for checking if user is logged in
-router.get('/userActive', async(req, res) => {
+router.get('/userActive', async (req, res) => {
   // console.log("hitting userActive route");
   // console.log(req.session.userId);
   const userId = await getUserByUserId(req.session.userId);

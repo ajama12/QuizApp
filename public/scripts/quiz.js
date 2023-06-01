@@ -13,7 +13,7 @@ $(document).ready(() => {
           error: (err) => {
             console.log("Err", err);
           }
-        }   
+        }
       $.ajax(config);
     };
     getQuestionData();
@@ -36,13 +36,6 @@ $(document).ready(() => {
     //     window.location.href = '/results';
     //   },
     //   error: function (err) {
-    //     console.log(err);
-    //   },
-    // });
-
-// const getAnswersByQuestionId = () => {
-//   const config = {
-//     url: "/api/quiz",
-//     method: "GET",
-//     success: (getCorrectAnswers) => {
-      
+   //     console.log(err);
+   //   },
+  // });
