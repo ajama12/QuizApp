@@ -20,7 +20,7 @@ $(document).ready(() => {
         updateUserButton(user);
       },
       error: (err) => {
-        console.log("Err", err);
+        console.log("Not logged in", err);
       }
     };
 

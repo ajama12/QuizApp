@@ -3,15 +3,14 @@
 // body,
 // html {
 //   margin: 0;
-  
+
 // }
 
 .quiz-content {
   display: flex;
   justify-content: space-evenly;
-  background-color: wheat;
   padding: 20px;
-  margin-top: 120px;
+  margin-top: 0px;
   width: 60%;
 }
 
@@ -24,16 +23,17 @@
 }
 
 .quiz-item {
-  text-align: "center";
+  text-align: center;
   display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 50px;
+  background-color: #c9c9c9;
 }
 
 .quiz-box {
   text-align: center
-
 }
-
 
 .container {
   display: flex;
@@ -41,7 +41,6 @@
   align-items: center;
   font-size: 25px;
   margin-top: 120px;
-  background-color: rgb(0, 238, 255);
   padding: 20px;
   width: 40%;
 }
@@ -50,5 +49,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
 }
+
+// .quiz-image {
+//   height: 200px;
+//   width: 500px;
+//   margin-bottom: 10px;
+// }

@@ -36,6 +36,25 @@ const getHistoryByQuizId = function(quizId) {
     });
 };
 
+const getUserHistory = function(userId) {
+  return db
+    .query(`SELECT history.*, quiz.quiz_name
+      FROM history
+      JOIN quiz ON quiz.id = history.quiz_id
+      WHERE history.user_id = $1`, [userId])
+    .then((result) => {
+      if (result.rows.length === 0) {
+        return null;
+      } else {
+        return result.rows;
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      throw err;
+    });
+};
+
 const addHistory = function(userId, quizId, recentScore) {
   return db
     .query(`INSERT INTO history (user_id, quiz_id, recent_score) VALUES ($1, $2, $3) RETURNING *`, [userId, quizId, recentScore])
@@ -48,8 +67,4 @@ const addHistory = function(userId, quizId, recentScore) {
     });
 };
 
-// const calcHistory = function(
-
-// )
-
-module.exports = { getHistoryByUserId, getHistoryByQuizId, addHistory };
+module.exports = { getHistoryByUserId, getHistoryByQuizId, getUserHistory, addHistory };

@@ -16,7 +16,6 @@
   <link rel="stylesheet" href="/styles/createQuiz.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
   <script defer src="/scripts/homepage.js"></script>
 
 <!-- Special Font -->
@@ -27,23 +26,15 @@
 <body>
 
   <%- include('partials/_header') %>
-  <section class="quiz-content">
-    <div class="quiz-box">
-      <h2>Available Quizzes</h2>
-      <div class="quiz-container" id="quiz-container"></div>
-    </div>
-  </section>
+
   <main class="container">
     <div class="featured-container1">
-      <!-- <aside class="featured-quiz"> -->
-
-        <div class="featured-overlay">
-          <h2>Featured Quizzes</h2>
-        </div>
-        <div class="quiz-box">
-          <button class="quiz-item">Featured Quiz 1</button>
-        </div>
-    </aside>
+      <div class="featured-overlay">
+        <h2>Featured Quizzes</h2>
+      </div>
+      <div class="quiz-box">
+        <button class="quiz-item">Guess the Coding Language</button>
+      </div>
     </div>
 
     <div class="featured-container2">
@@ -51,39 +42,13 @@
     </div>
   </main>
 
-</body>
-
-</html>
-
-<!--
   <section class="quiz-content">
-    <div class="header-buttons">
-      <button type="submit">Logout</button>
-      <button type="submit">My Page</button>
-      <div class="profile-picture"></div>
-    </div>
-
-    <div class="container">
-      <div class="quiz-box">
-        <h2>Available Quizzes</h2>
-        <div class="quiz-row">
-        <button class="quiz-item">Quiz 1</button>
-        <button class="quiz-item">Quiz 2</button>
-        <button class="quiz-item">Quiz 3</button>
-      </div>
-      <div class="container">
-        <button class="quiz-item">Quiz 4</button>
-        <button class="quiz-item">Quiz 5</button>
-        <button class="quiz-item">Quiz 6</button>
-      </div>
-      </div>
+    <div class="quiz-box">
+      <h2>Available Quizzes</h2>
+      <div class="quiz-container" id="quiz-container"></div>
     </div>
   </section>
 
-  <div class="featured-container">
-    <h2>Featured Quizzes</h2>
-    <div class="quiz-box">
-      <h2>Featured Quiz 1</h2>
-      <h2>Featured Quiz 2</h2>
-    </div>
-  </div> -->
+</body>
+
+</html>

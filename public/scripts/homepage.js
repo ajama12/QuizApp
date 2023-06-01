@@ -14,7 +14,7 @@ $(document).ready(() => {
   //create box for each quiz
   const createQuizBox = (quizzesData) => {
     quizzesContainer.empty();
-    console.log(quizzesData);
+    //console.log(quizzesData);
     quizzesData.forEach((quiz) => {
       quizzesContainer.append(createQuiz(quiz));
     });
