@@ -1,7 +1,8 @@
 $(document).ready(() => {
 
   //when we submit the form
-  $("#quiz-submission-form").submit(() => {
+  $("#quiz-submission-form").submit((event) => {
+    event.preventDefault();
     //ajax request save to database and redirect to new quiz
     const postNewQuiz = () => {
       console.log("postNewQuiz reached");
@@ -52,7 +53,9 @@ $(document).ready(() => {
       const config = {
         method: "POST",
         url: "/createQuiz",
-        data: quizData,
+        data: JSON.stringify(quizData),
+        contentType: "application/json",
+        dataaType: "json",
         success: () => {
           console.log("Successfully created quiz!");
         },

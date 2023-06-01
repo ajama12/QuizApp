@@ -13,19 +13,17 @@ router.get("/:user_id", (req, res) => {
 
 //Create a new quiz
 router.post("/:user_id", async(req, res) => {
+  console.log(req.body);
   console.log("create quiz route hit");
+  console.log(req.session.userId);
+
   if (req.session.userId) {
     try {
-      console.log(req.body);
-      const quizResult = await addQuiz(
-        req.body.userId,
-        req.body.quizName,
-        req.body.quizDesc,
-        req.body.isPrivate
-      );
+      const { userId, quizName, quizDesc, isPrivate, questions } = req.body;
+      const quizResult = await addQuiz(userId, quizName, quizDesc, isPrivate);
       const quizId = quizResult.id;
 
-      for (let question of req.body.questions) {
+      for (let question of questions) {
         const questionResult = await addQuestion(
           quizId,
           question.questionPrompt
