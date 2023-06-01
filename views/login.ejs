@@ -8,25 +8,30 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/login.css" />
-  <!-- Special Font -->
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Mukta:wght@300&family=Source+Sans+Pro:ital,wght@1,600&display=swap" rel="stylesheet">
   <title>QuizIt Login</title>
 </head>
 
+
 <body>
+
   <header>
     <form action="/" method="GET">
       <button class="logo">QuizIt</button>
     </form>
   </header>
 
+   <div class="headerSpaceSection"></div>
+
+  <div class="loginContentContainer">
+
   <section class="page-content">
-    <h1>Login Page</h1>
+    <h1>Login</h1>
     <div class="page-form">
       <form method="POST" action="/login" id="loginForm">
-        <h2>Email Address</h2>
+        <h2>Email Address:</h2>
           <input type = "email" name = "email" id="email">
-        <h2>Password</h2>
+        <h2>Password:</h2>
           <input type = "password" name = "password" id="password">
         <button type="submit" id="submit" class="login-button">Login</button>
      </form>
