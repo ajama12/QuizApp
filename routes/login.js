@@ -31,13 +31,9 @@ router.post('/', async(req, res) => {
 });
 
 //get route for checking if user is logged in
-<<<<<<< HEAD
-router.get('/userActive', async(req, res) => {
-=======
 router.get('/userActive', async (req, res) => {
   // console.log("hitting userActive route");
   // console.log(req.session.userId);
->>>>>>> 1a9d630c022a1a7146d6566871c2f45d4fde34a2
   const userId = await getUserByUserId(req.session.userId);
   if (userId) {
     res.status(200).send(userId);
