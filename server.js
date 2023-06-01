@@ -56,8 +56,8 @@ app.use('/login', loginRoutes);
 app.use('/createQuiz', createQuizRoutes);
 app.use('/quiz', quizRoutes);
 app.use('/result', resultRoutes);
-app.use('/', homepageRoutes);
 app.use('/logout', logoutRoutes);
+app.use('/', homepageRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
