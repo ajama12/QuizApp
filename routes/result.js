@@ -5,7 +5,7 @@ const { getQuestionsByQuizId } = require('../db/queries/questions');
 const { getCorrectAnswers } = require('../db/queries/answers');
 
 //Load result page
-router.get('/:quizId', (req, res) => {
+router.get('/results/:quizId/', (req, res) => {
   const quizId = req.params.quizId;
 
   getQuizByQuizId(quizId)
@@ -71,7 +71,7 @@ const compareAnswers = (userAnswers, correctAnswers) => {
 
 
 // Result page after quiz
-router.post('/:quizId', (req, res) => {
+router.post('/results/:quizId', (req, res) => {
   const quizId = req.params.quizId;
   const userAnswers = req.body.answers;
 

@@ -1,14 +1,14 @@
 .login {
   justify-content: center;
   display: flex;
-
+  justify-content: center;
 }
 
 #login-box {
   justify-content: center;
   display: flex;
   flex-direction: column;
-  
+
 }
 
 .page-content {
@@ -16,11 +16,10 @@
   align-items: center;
   margin-top: 120px;
   padding: 20px;
-  background-color: #9ae9f3;
+  background-color: #5d6f67;
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  border: 2px solid black;
 }
 
 body {
@@ -40,5 +39,8 @@ body {
   align-items: center;
 }
 
+#submit.login-button{
+  background-color: #c9c9c9;
+}
 
 
