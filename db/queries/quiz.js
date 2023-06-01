@@ -3,7 +3,8 @@ const db = require('../connection');
 const getAllQuizzes = function() {
   return db
     .query(`SELECT *
-    FROM quiz`)
+    FROM quiz
+    WHERE is_private = false`)
     .then((result) => {
       if (result.rows.length > 0) {
         return result.rows;

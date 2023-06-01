@@ -31,7 +31,7 @@ router.post('/', async(req, res) => {
 });
 
 //get route for checking if user is logged in
-router.get('/userActive', async(req, res) => {
+router.get('/userActive', async (req, res) => {
   // console.log("hitting userActive route");
   // console.log(req.session.userId);
   const userId = await getUserByUserId(req.session.userId);
