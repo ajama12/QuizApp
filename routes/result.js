@@ -14,9 +14,7 @@ router.get('/:quizId', (req, res) => {
         // Quiz not found
         res.status(404).send('Quiz does not exist!');
       } else {
-        res.render('quizResults', {
-          quiz,
-        });
+        res.render('quizResults', { quiz });
       }
     })
     .catch((err) => {
@@ -85,9 +83,10 @@ router.post('/:quizId', (req, res) => {
 
             const { totalQuestions, correctCount, incorrectCount } = comparisonResult;
 
-            const score = calcScore(correctCount, totalQuestions);
+            const score = Math.round((correctCount / totalQuestions) * 100);
 
             res.render('quizResults', {
+              quiz,
               score,
               correctCount,
               incorrectCount,
@@ -96,13 +95,13 @@ router.post('/:quizId', (req, res) => {
           })
           .catch((err) => {
             console.log(err);
-            throw err;
+            res.status(500).send('Something went wrong while calculating the quiz results.');
           });
       }
     })
     .catch((err) => {
       console.log(err);
-      throw err;
+      res.status(500).send('Something went wrong while retrieving the quiz.');
     });
 });
 
