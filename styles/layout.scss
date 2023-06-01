@@ -3,14 +3,14 @@
 // body,
 // html {
 //   margin: 0;
-  
+
 // }
 
 .quiz-content {
   display: flex;
   justify-content: space-evenly;
   padding: 20px;
-  margin-top: 120px;
+  margin-top: 0px;
   width: 60%;
 }
 
@@ -23,14 +23,16 @@
 }
 
 .quiz-item {
-  text-align: "center";
+  text-align: center;
   display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 50px;
+  background-color: #c9c9c9;
 }
 
 .quiz-box {
   text-align: center
-
 }
 
 

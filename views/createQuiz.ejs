@@ -1,77 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/createQuiz.css" />
-  <title>Create Quiz</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/createQuiz.css" />
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script defer src="/scripts/createQuiz.js"></script>
 
-  <%- include('partials/_header') %>
+    <title>Create Quiz</title>
+  </head>
+  <body>
+    <meta id="user-id" data-user-id="<%= user.id %>">
+    <%- include('partials/_header') %>
     <section class="page-content">
-      <div class="question-form">
-        <h2>Quiz Details</h2>
-          <label for="quiz_title">Quiz Title</label>
-          <input type="text" name="quiz_title" id="quiz_title"/>
+      <h2>Create Quiz!</h2>
+      <form method="POST" action="/createQuiz/<%= user.id %>" class="quiz-submission-form" id="quiz-submission-form">
+        <div class="question-form">
+          <label for="quiz_title">Quiz Title:</label>
+          <input type="text" name="quiz_title" id="quiz_title" />
+          <label for="quiz_description">Quiz Description:</label>
+          <input type="text" name="quiz_description" id="quiz_description" />
 
-          <label for="quiz_description">Quiz Description</label>
-          <input name="quiz_description" id="quiz_description"></input>
+          <label for="question_1">Question 1:</label>
+          <input name="question_1" id="question_1" />
+          <label for="answer1_1">Answer Choice 1:</label>
+          <input name="answer1_1" class="true-answer" id="answer1_1" />
+          <label for="answer1_2">Answer Choice 2:</label>
+          <input name="answer1_2" class="false-answer" id="answer1_2" />
+
+          <label for="question_2">Question 2</label>
+          <input name="question_2" id="question_2" />
+          <label for="answer2_1">Answer Choice 1:</label>
+          <input name="answer2_1" class="false-answer" id="answer2_1" />
+          <label for="answer2_2">Answer Choice 2:</label>
+          <input name="answer2_2" class="true-answer" id="answer2_2" />
+
+          <label for="question_3">Question 3:</label>
+          <input name="question_3" id="question_3" />
+          <label for="answer3_1">Answer Choice 1:</label>
+          <input name="answer3_1" class="true-answer" id="answer3_1" />
+          <label for="answer3_2">Answer Choice 2:</label>
+          <input name="answer3_2" class="false-answer" id="answer3_2" />
+
+          <label for="question_4">Question 4:</label>
+          <input name="question_4" id="question_4" />
+          <label for="answer4_1">Answer Choice 1:</label>
+          <input name="answer4_1" class="true-answer" id="answer4_1" />
+          <label for="answer4_2">Answer Choice 2:</label>
+          <input name="answer4_2" class="false-answer" id="answer4_2" />
+
+          <label for="question_5">Question 5:</label>
+          <input name="question_5" id="question_5" />
+          <label for="answer5_1">Answer Choice 1:</label>
+          <input name="answer5_1" class="true-answer" id="answer5_1" />
+          <label for="answer5_2">Answer Choice 2:</label>
+          <input name="answer5_2" class="false-answer" id="answer5_2" />
 
           <div class="public_private">
             <div>
-              <label for="public">Public</label>
-              <input type="radio" name="quiz_private" id="public">
-            </div>
-            <div>
               <label for="private">Private</label>
-              <input type="radio" name="quiz_private" id="private">
+              <input type="radio" name="quiz_private" id="private" />
             </div>
           </div>
+
           <button type="submit" id="submit">Create Quiz!</button>
-
         </div>
-
-        <div class="quiz-questions">
-          <h2>Question Details</h2>
-
-          <label for="quiz_description1">Question 1</label>
-          <input name="quiz_description1" id="quiz_description1"></input>
-
-          <label for="quiz_answer1">Answer Choice 1</label>
-          <input name="quiz_answer1" id="quiz_answer1"></input>
-          <label for="quiz_answer1">Answer Choice 2</label>
-          <input name="quiz_answer1" id="quiz_answer1"></input>
-
-          <label for="quiz_description1">Question 2</label>
-          <input name="quiz_description1" id="quiz_description1"></input>
-
-          <label for="quiz_answer1">Answer Choice 1</label>
-          <input name="quiz_answer1" id="quiz_answer1"></input>
-          <label for="quiz_answer1">Answer Choice 2</label>
-          <input name="quiz_answer1" id="quiz_answer1"></input>
-
-          <label for="quiz_description1">Question 3</label>
-          <input name="quiz_description1" id="quiz_description1"></input>
-
-          <label for="quiz_answer1">Answer Choice 1</label>
-          <input name="quiz_answer1" id="quiz_answer1"></input>
-          <label for="quiz_answer1">Answer Choice 2</label>
-          <input name="quiz_answer1" id="quiz_answer1"></input>
-
-          <label for="quiz_description1">Question 4</label>
-          <input name="quiz_description1" id="quiz_description1"></input>
-
-          <label for="quiz_answer1">Answer Choice 1</label>
-          <input name="quiz_answer1" id="quiz_answer1"></input>
-          <label for="quiz_answer1">Answer Choice 2</label>
-          <input name="quiz_answer1" id="quiz_answer1"></input>
-
-          <button class="add_question">Add Question</button>
-        </div>
+      </form>
     </section>
   </body>
-
 </html>
-
