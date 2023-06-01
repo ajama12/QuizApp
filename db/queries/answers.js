@@ -46,7 +46,9 @@ const addAnswer = function(quizId, questionId, answer, isCorrect) {
   return db
     .query(`INSERT INTO answers (quiz_id, question_id, answer, is_correct) VALUES ($1, $2, $3, $4) RETURNING *`, [quizId, questionId, answer, isCorrect])
     .then((result) => {
-      return result;
+      // console.log("add answer", result.rows);
+      // console.log("answer rows", result.rows[0]);
+      return result.rows;
     })
     .catch((err) => {
       console.log(err);
