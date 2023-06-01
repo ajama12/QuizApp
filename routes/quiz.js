@@ -6,19 +6,7 @@ const { getAnswersByQuestionId } = require('../db/queries/answers');
 
 //Load specific quiz page
 router.get('/:quizId', (req, res) => {
-<<<<<<< HEAD
-  getQuizByQuizId(req.params.quizId)
-    .then((quiz) => {
-      const templateVars = {quiz};
-      res.render('quiz', templateVars);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).send('An error occured while retrieving quiz.');
-    });
-=======
   // call query for getting list of questions by quiz id
-  // const questions = getQuestionsbyquizID()
 
   Promise.all(
     [
@@ -27,12 +15,12 @@ router.get('/:quizId', (req, res) => {
 
     ]
   ).then(async all => {
-    const quiz = all[1]
-    const justQuestions = all[0]
-    const questions = []
+    const quiz = all[1];
+    const justQuestions = all[0];
+    const questions = [];
     for (const question of justQuestions) {
-      const answersOfSpecificQuestion = await getAnswersByQuestionId(question.id)
-      console.log("answersOfSpecificQuestion", answersOfSpecificQuestion)
+      const answersOfSpecificQuestion = await getAnswersByQuestionId(question.id);
+      console.log("answersOfSpecificQuestion", answersOfSpecificQuestion);
       questions.push({
         ...question,
         answers: answersOfSpecificQuestion
@@ -49,7 +37,6 @@ router.get('/:quizId', (req, res) => {
     console.log(err);
     res.status(500).send('An error occured while retrieving quiz.');
   });
->>>>>>> 1a9d630c022a1a7146d6566871c2f45d4fde34a2
 });
 
 module.exports = router;
