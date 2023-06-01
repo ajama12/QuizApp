@@ -79,7 +79,7 @@ const addQuiz = function(userId, quizName, quizDesc, isPrivate) {
     .query(`INSERT INTO quiz (user_id, quiz_name, quiz_desc, is_private)
     VALUES ($1, $2, $3, $4) RETURNING *`, [userId, quizName, quizDesc, isPrivate])
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       return result.rows[0];
     })
     .catch((err) => {
