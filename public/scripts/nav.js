@@ -44,7 +44,7 @@ $(document).ready(() => {
   const updateUserProfileButton = function(user) {
     if (user !== null && user !== "") {
       return `
-        <button class="logo" onclick="location.href='/user/${user.id}'">
+        <button class="manlogo" onclick="location.href='/user/${user.id}'">
           <img id="man-profile-pic" src="https://freesvg.org/img/winkboy.png">
         </button>
       `;
