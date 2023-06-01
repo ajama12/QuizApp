@@ -1,9 +1,11 @@
-// // body, header, form, button, logo,
-
 body {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   font-family: 'Mukta', sans-serif;
   background-color: #5d6f67;
+  margin: 0;
+  padding: 0;
 }
 
 header {
@@ -17,34 +19,36 @@ header {
   background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
   position: fixed;
   z-index: 100;
-  padding: 0 20px; /* Add padding to header for spacing */
+  padding: 0 20px;
 }
-
 
 .logo {
   font-size: 70px;
   font-family: 'Mukta', sans-serif;
   border: none;
   background: none;
-
 }
 
 .create-quiz-button {
   display: flex;
+  justify-content: center;
+  padding: 10px;
   font-family: 'Mukta', sans-serif;
+  background-color: #dfdede;
+  color: black;
+  border-radius: 5px;
 }
 
 #man-profile-pic {
   width: 100px;
   height: 100px;
   background-size: cover;
+  border-radius: 50%;
 }
 
 .header-buttons {
   display: flex;
   font-size: 35px;
-  justify-content: space-between;
-
 }
 
 .header-title {
@@ -56,10 +60,26 @@ header {
 
 .header-title button {
   display: flex;
-  color: black;
-  background-color: #dfdede;
-  border-radius: 10px;
   justify-content: space-between;
   align-items: center;
+  border-radius: 10px;
+  color: black;
+  background-color: #dfdede;
+  padding: 5px 10px;
 }
 
+.page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  padding: 0 10px;
+  margin-top: 150px;
+}
+
+input, button {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 7px;
+}
