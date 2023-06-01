@@ -66,6 +66,9 @@ router.post('/:quizId', (req, res) => {
   const quizId = req.params.quizId;
   const userAnswers = req.body.answers;
 
+  const correctAnswersArray = [];
+
+
   let comparisonResult;
 
   getQuizByQuizId(quizId)
@@ -79,7 +82,12 @@ router.post('/:quizId', (req, res) => {
             return getCorrectAnswers(quizId, questionIds);
           })
           .then((correctAnswers) => {
-            comparisonResult = compareAnswers(userAnswers, correctAnswers);
+            for (answer of correctAnswers) {
+              correctAnswersArray.push(answer.answer);
+            }
+
+            console.log("correctAnswersArray" , correctAnswersArray);
+            comparisonResult = compareAnswers(userAnswers, correctAnswersArray);
 
             const { totalQuestions, correctCount, incorrectCount } = comparisonResult;
 
