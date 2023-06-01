@@ -8,7 +8,6 @@ $(document).ready(() => {
     console.log(user);
     console.log(user.id);
     if (user !== null && user !== "") {
-      console.log("hitting if statement");
       return `
       <form>
       <button onclick="location.href='/createQuiz/${user.id}" id="create-Quiz-Button" class="header-buttons">Create Quiz</button>
