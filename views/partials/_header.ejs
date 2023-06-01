@@ -10,6 +10,7 @@
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/logout.js"></script>
+  <script defer src="/scripts/nav.js"></script>
 
 <header>
   <form action="/" method="GET">
@@ -17,6 +18,9 @@
   </form>
 
   <span class="header-title">
+
+    <div class="quiz-button-container" id="quiz-button-container"></div>
+
     <div class="button-container" id="button-container">
       <form>
         <button id="logButton" class="header-buttons">Log In</button>
@@ -26,11 +30,14 @@
     <!-- <form action="/userProfile" method="GET">
       <button class="header-buttons">My Page</button>
     </form> -->
-    <div class="profile-picture"></div>
 
-    <!-- <form action="/createQuiz" method="GET">
-      <button class="create-quiz-button" type="submit">Create New Quiz</button>
-    </form> -->
+    <div class="profile-picture" id="profile-picture-button">
+       <button class="logo">
+          <img id="man-profile-pic" src="https://freesvg.org/img/winkboy.png">
+        </button>
+    </div>
+
+
   </span>
 
   <!--If statement goes here -->
