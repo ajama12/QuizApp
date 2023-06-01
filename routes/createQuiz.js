@@ -13,9 +13,9 @@ router.get("/:user_id", (req, res) => {
 
 //Create a new quiz
 router.post("/:user_id", async(req, res) => {
-  console.log(req.body);
-  console.log("create quiz route hit");
-  console.log(req.session.userId);
+  // console.log(req.body);
+  // console.log("create quiz route hit");
+  // console.log(req.session.userId);
 
   if (req.session.userId) {
     try {

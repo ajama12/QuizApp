@@ -66,6 +66,9 @@ $(document).ready(() => {
 
       $.ajax(config);
     };
+
     postNewQuiz();
   });
+
+
 });

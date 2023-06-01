@@ -10,6 +10,7 @@
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/logout.js"></script>
+  <script defer src="/scripts/nav.js"></script>
 
 <header>
   <form action="/" method="GET">
@@ -18,11 +19,7 @@
 
   <span class="header-title">
 
-    <div class="button-container" id="button-container">
-      <form action="/" method="GET">
-        <button id="createQuizButton" class="header-buttons">Create Quiz</button>
-      </form>
-    </div>
+    <div class="quiz-button-container" id="quiz-button-container"></div>
 
     <div class="button-container" id="button-container">
       <form>
@@ -33,12 +30,11 @@
     <!-- <form action="/userProfile" method="GET">
       <button class="header-buttons">My Page</button>
     </form> -->
+
     <div class="profile-picture">
-      <form action="/" method="GET">
         <button class="logo">
           <img id="man-profile-pic" src="https://freesvg.org/img/winkboy.png">
         </button>
-      </form>
     </div>
 
 
