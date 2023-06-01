@@ -3,7 +3,7 @@
 body {
   display: flex;
   font-family: 'Mukta', sans-serif;
-  background-color: #9ae9f3;
+  background-color: #5d6f67;
 }
 
 header {
@@ -13,7 +13,8 @@ header {
   top: 0px;
   height: 120px;
   width: 100%;
-  background-color: #e5e5e5;
+  background-color: #8a8d91;
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
   position: fixed;
   z-index: 100;
   padding: 0 20px; /* Add padding to header for spacing */
@@ -55,8 +56,8 @@ header {
 
 .header-title button {
   display: flex;
-  color: white;
-  background-color: #000000;
+  color: black;
+  background-color: #dfdede;
   border-radius: 10px;
   justify-content: space-between;
   align-items: center;
