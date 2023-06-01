@@ -4,10 +4,9 @@ $(document).ready(() => {
   //when we submit the form
   $("#quiz-submission-form").submit((event) => {
     event.preventDefault();
-    //ajax request save to database and redirect to new quiz
 
+    //ajax request save to database and redirect to new quiz
     const postNewQuiz = () => {
-      console.log("postNewQuiz reached");
       const quizData = {
         quizName: $("#quiz_title").val().trim(),
         quizDesc: $("#quiz_description").val().trim(),
@@ -50,7 +49,7 @@ $(document).ready(() => {
           },
         ],
       };
-      console.log("quizData:", quizData);
+
       const config = {
         method: "POST",
         url: "/createQuiz/" + userId,
