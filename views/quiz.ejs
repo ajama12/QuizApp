@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,64 +8,37 @@
   <link rel="stylesheet" href="/styles/quiz.css" />
   <title>Quiz Attempt</title>
 </head>
+
 <body>
   <%- include('partials/_header') %>
+
     <form action="/quiz" method="POST" id="quizForm">
-    <section class="page-content">
-      <div class="page-form">
-        <h1>Name Of Quiz</h1>
-        <h2>By: Author Name </h2>
+      <section class="page-content">
+        <div class="page-form">
+          <h1>
+            <%= quiz.quiz_name%>
+          </h1>
+          <h1>
+            <%= quiz.quiz_desc%>
+          </h1>
 
-        <button type="button" id="submitQuiz">Submit Quiz</button>
-      </div>
-
-
-      <div class="quiz-questions">
-        <h2>Questions Details</h2>
-
-        <div class="question-1">
-        <label for="quiz_description1">Question Description 1</label><br>
-
-            <input type="radio" name="question1" id="Q1Answer1">
-            <label for="answer1">Answer 1</label>
-            <input type="radio" name="question1" id="Q1Answer2">
-            <label for="answer1">Answer 2</label>
+          <button type="submit" id="submitQuiz">Submit Quiz</button>
         </div>
-
-        <div class="question-2">
-        <label for="quiz_description1">Question Description 2</label>
-        <br>
-          <input type="radio" name="question2" id="Q2Answer1">
-            <label for="answer1">Answer 1</label>
-            <input type="radio" name="question2" id="Q2Answer2">
-            <label for="answer1">Answer 2</label>
+        <div class="quiz-questions">
+          <h2>Questions Details</h2>
+          <% for (const question of questions) { %>
+            <div class="question">
+              <label for="quiz_description<%= question.id %>"><%= question.question_prompt %></label>
+              <label for="quiz_description1"><%= question.question_desc %></label><br>
+              <% for (let i = 0; i < question.answers.length; i++) { %>
+                <input type="radio" name="question<%= question.id %>" id="Q<%= question.id %>Answer<%= i %>">
+                <label for="question<%= question.id %>"><%= question.answers[i].answer %></label>
+              <% }%>
+            </div>
+            <% }%>
         </div>
+      </section>
+    </form>
+</body>
 
-        <div class="question-3">
-          <label for="quiz_description1">Question Description 3</label><br>
-          <input type="radio" name="question3" id="Q3Answer1">
-            <label for="answer1">Answer 1</label>
-            <input type="radio"  name="question3" id="Q3Answer2">
-            <label for="answer1">Answer 2</label>
-
-        </div>
-
-        <div class="question-3">
-        <label for="quiz_description1">Question Description 4</label><br>
-
-          <input type="radio" name="question4" id="Q4Answer1">
-            <label for="answer1">Answer 1</label>
-            <input type="radio" name="question4" id="Q4Answer2">
-            <label for="answer1">Answer 2</label>
-        </div>
-        </div>
-
-
-        </section>  
-      </form>
-      
-      </div>
-  </body>
 </html>
-
-
