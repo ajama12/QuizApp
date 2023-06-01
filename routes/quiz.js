@@ -6,7 +6,6 @@ const { getQuizByQuizId } = require('../db/queries/quiz');
 router.get('/:quizId', (req, res) => {
   getQuizByQuizId(req.params.quizId)
     .then((quiz) => {
-      // console.log(quiz);
       const templateVars = {quiz};
       res.render('quiz', templateVars);
     })
