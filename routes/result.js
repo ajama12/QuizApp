@@ -38,17 +38,10 @@ const compareAnswers = (userAnswers, correctAnswers) => {
   let correctCount = 0;
   let incorrectCount = 0;
 
-  // console.log("CA", correctAnswers);
-  // console.log("UA", userAnswers);
-
   userAnswers.forEach((userAnswer) => {
     const correspondingCorrectAns = correctAnswers.find((correctAnswer) => {
-      // console.log("CAQI", correctAnswer.question_id);
-      // console.log("UAQI", userAnswer.question_id);
       return correctAnswer.question_id === userAnswer.question_id;
     });
-    // console.log("CCA", correspondingCorrectAns);
-    // console.log("UA", userAnswers);
     if (correspondingCorrectAns) {
       if (userAnswer.answer === correspondingCorrectAns.answer) {
         correctCount++;
@@ -87,12 +80,10 @@ router.post('/:quizId', (req, res) => {
           })
           .then((correctAnswers) => {
             comparisonResult = compareAnswers(userAnswers, correctAnswers);
-            //console.log("CR", comparisonResult);
+
             const { totalQuestions, correctCount, incorrectCount } = comparisonResult;
 
             const score = Math.round((correctCount / totalQuestions) * 100);
-
-            //console.log(score);
 
             res.render('quizResults', {
               quiz,

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta id="user-id" data-user-id="<%= user.id %>">
     <link rel="stylesheet" href="/styles/createQuiz.css" />
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/createQuiz.js"></script>
@@ -11,7 +12,6 @@
     <title>Create Quiz</title>
   </head>
   <body>
-    <meta id="user-id" data-user-id="<%= user.id %>">
     <%- include('partials/_header') %>
     <section class="page-content">
       <h2>Create Quiz!</h2>
