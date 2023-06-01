@@ -39,26 +39,3 @@ $(document).ready(() => {
   };
   getQuestionData();
 });
-
-// $(document).ready(() => {
-//   $('#quizForm').submit((e) => {
-//     e.preventDefault();
-
-//       const getQuestionData = () => {
-//         const config ={
-//           method: "POST",
-//           URL: "/api/quizzes",
-//           success : (questions) => {
-//             const questionsObj = JSON.parse(questions);
-//             createQuestionBox(questionsObj);
-//           },
-//           error: (err) => {
-//             console.log("Err", err);
-//           }
-//         }
-//       $.ajax(config);
-//     };
-//     getQuestionData();
-// });
-
-
