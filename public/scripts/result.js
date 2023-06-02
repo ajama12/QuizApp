@@ -8,7 +8,8 @@ $(document).ready(() => {
     dummy.select();
     document.execCommand('copy');
     document.body.removeChild(dummy);
-});
+    alert('URL Copied!');
+  });
 
  
   $('#submit').click(() => {
@@ -38,9 +39,4 @@ $(document).ready(() => {
         console.log(error);
       },
     });
-  });
-  
-
 });
-
-
