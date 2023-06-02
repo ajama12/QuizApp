@@ -36,6 +36,7 @@ $(document).ready(() => {
   //create history template
   const createHistoryInfo = function(history) {
     return `
+    <h2></h2>
     <p> Quiz: ${history.quiz_name} </p>
     <p> Percentage: ${history.recent_score}%</p>
       `;
