@@ -1,5 +1,4 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -33,13 +32,14 @@ h1, h2 {
 }
 
 label {
-  display: flex;
-  align-items: center; /* Align input and answer vertically */
+  display: in-line-flex;
+  align-items: center;
   margin-bottom: 5px;
 }
 
 input[type="radio"] {
   margin-right: 5px;
+  display: inline-flex;
 }
 
 #submitQuiz {
@@ -66,13 +66,15 @@ input[type="radio"] {
   font-size: 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .question label {
   margin-bottom: 10px;
+  display: inline-flex;
 }
 
 .question input[type="radio"] {
   margin-right: 10px;
+  display: inline-flex;
 }
