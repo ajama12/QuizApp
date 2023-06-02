@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
   <link rel="stylesheet" href="/styles/result.css" />
+  <script defer src="/scripts/result.js"></script>
   <title>Results Page</title>
 </head>
 <body>
@@ -14,7 +15,7 @@
 
 <section class="page-content">
   <div class="quiz-questions">
-    <h1>Questions Details</h1>
+    <h1>Questions Details : </h1>
     <h1>
       <%= quiz.quiz_name%>
     </h1>
@@ -38,10 +39,9 @@
         </div>
         <% }%>
     </div>
-
     <div class="result-buttons">
       <h1>Results: <%= correctCount %>/<%= totalQuestions %> = <%= score %>%</h1>
-      <button type="submit" id="submit">Share</button>
+      <button type="button" id="urlLink">Share</button>
     </div>
   </div>
   </div>
