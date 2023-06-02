@@ -1,34 +1,34 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { getQuizByQuizId } = require('../db/queries/quiz');
-const { getQuestionsByQuizId } = require('../db/queries/questions');
-const { getCorrectAnswers } = require('../db/queries/answers');
+const { getQuizByQuizId } = require("../db/queries/quiz");
+const { getQuestionsByQuizId } = require("../db/queries/questions");
+const { getCorrectAnswers } = require("../db/queries/answers");
 
 //Load result page
-router.get('/:quizId', (req, res) => {
+router.get("/:quizId", (req, res) => {
   const quizId = req.params.quizId;
 
   getQuizByQuizId(quizId)
     .then((quiz) => {
       if (!quiz) {
         // Quiz not found
-        res.status(404).send('Quiz does not exist!');
+        res.status(404).send("Quiz does not exist!");
       } else {
-        res.render('quizResults', {
+        res.render("quizResults", {
           quiz,
         });
       }
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).send('Something went wrong while retrieving the quiz.');
+      res.status(500).send("Something went wrong while retrieving the quiz.");
     });
 });
 
 //HELPERS
 const calcScore = (correctAnswers, totalQuestions) => {
   if (totalQuestions === 0) {
-    throw new Error('No questions in the quiz.');
+    throw new Error("No questions in the quiz.");
   } else {
     const score = Math.round((correctAnswers / totalQuestions) * 100);
     return score;
@@ -38,9 +38,9 @@ const calcScore = (correctAnswers, totalQuestions) => {
 //Compare user answers with correct answers
 const compareAnswers = (userAnswers, correctAnswers) => {
   console.log("hitting compareAnswers");
-  console.log(typeof userAnswers);
+  console.log("UAs", userAnswers);
 
-  const parsedUserAnswers = JSON.parse(userAnswers);
+  const parsedUserAnswers = userAnswers;
 
   console.log(correctAnswers);
   let correctCount = 0;
@@ -72,33 +72,39 @@ const compareAnswers = (userAnswers, correctAnswers) => {
   };
 };
 
-
 // Result page after quiz
-router.post('/:quizId', async(req, res) => {
+router.post("/:quizId", async (req, res) => {
   const quizId = req.params.quizId;
-  const userAnswers = req.body.answers;
-  // console.log(req.body.answers);
-  // console.log("UA", userAnswers);
+  const userAnswers = [];
+  for(const key in req.body){
+    const obj = {};
+    obj["question_id"] = key;
+    obj["answer"] = req.body[key];
+    userAnswers.push(obj);
+  }
+
+  console.log("userAnswers#####", userAnswers);
 
   let comparisonResult;
 
   await getQuizByQuizId(quizId)
     .then((quiz) => {
       if (!quiz) {
-        res.status(404).send('Quiz does not exist!');
+        res.status(404).send("Quiz does not exist!");
       } else {
         getQuestionsByQuizId(quizId)
           .then((questions) => {
             const questionIds = questions.map((question) => question.id);
             return getCorrectAnswers(quizId, questionIds);
           })
-          .then((correctAnswers) => 
+          .then((correctAnswers) => {
             // console.log("CA", correctAnswers);
             comparisonResult = compareAnswers(userAnswers, correctAnswers);
             console.log("CR", comparisonResult);
-            const { totalQuestions, correctCount, incorrectCount } = comparisonResult;
+            const { totalQuestions, correctCount, incorrectCount } =
+              comparisonResult;
 
-            const score = calcScore(correctCount, totalQuestions);
+            const score = Math.round(correctCount, totalQuestions);
 
             //console.log(score);
 
@@ -114,7 +120,7 @@ router.post('/:quizId', async(req, res) => {
             console.log("incorrectCount", incorrectCount);
             console.log("totalQuestions", totalQuestions);
 
-            res.render('quizResults', {
+            res.render("quizResults", {
               score,
               correctCount,
               incorrectCount,
@@ -132,6 +138,4 @@ router.post('/:quizId', async(req, res) => {
       throw err;
     });
 });
-
-
 module.exports = router;
