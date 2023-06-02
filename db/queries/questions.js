@@ -24,7 +24,7 @@ const addQuestion = function(quizId, questionPrompt) {
     .then((result) => {
       // console.log("addQuestion:", result.rows);
       // console.log("addQuestionRows:", result.rows[0]);
-      return result.rows;
+      return result.rows[0];
     })
     .catch((err) => {
       console.log(err);

@@ -6,10 +6,11 @@ const getAnswersByQuestionId = function(questionId) {
     FROM answers
     WHERE question_id = $1`, [questionId])
     .then((result) => {
+      console.log("questionId", questionId);
       if (result.rows.length > 0) {
         return result.rows;
       } else {
-        return null;
+        return [];
       }
     })
     .catch((err) => {
