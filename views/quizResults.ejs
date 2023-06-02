@@ -14,49 +14,26 @@
 
 <section class="page-content">
   <div class="quiz-questions">
-    <h2>Questions Details</h2>
-
-    <div class="question-1">
-      <label for="quiz_description1">Question Description 1</label><br>
-
-          <input type="radio" name="question1" id="Q1Answer1">
-          <label for="answer1">Answer 1</label>
-          <input type="radio" name="question1" id="Q1Answer2">
-          <label for="answer1">Answer 2</label>
+    <h1>Questions Details</h1>
+    <h1>
+      <%= quiz.quiz_name%>
+    </h1>
+    <h1>
+      <%= quiz.quiz_desc%>
+    </h1>
+    <div class="quiz-answers">
+      <% for (const answer of correctAnswers) { %>
+        <div class="answer">
+          <h1>Correct Answer for <%= answer.question_id %> </h1>
+          <label for="quiz_answer1"><%= answer.answer%></label><br>
+        </div>
     </div>
-
-    <div class="question-2">
-    <label for="quiz_description1">Question Description 2</label>
-    <br>
-      <input type="radio" name="question2" id="Q2Answer1">
-        <label for="answer1">Answer 1</label>
-        <input type="radio" name="question2" id="Q2Answer2">
-        <label for="answer1">Answer 2</label>
-    </div>
-
-    <div class="question-3">
-      <label for="quiz_description1">Question Description 3</label><br>
-      <input type="radio" name="question3" id="Q3Answer1">
-        <label for="answer1">Answer 1</label>
-        <input type="radio"  name="question3" id="Q3Answer2">
-        <label for="answer1">Answer 2</label>
-
-    </div>
-
-    <div class="question-3">
-    <label for="quiz_description1">Question Description 4</label><br>
-
-      <input type="radio" name="question4" id="Q4Answer1">
-        <label for="answer1">Answer 1</label>
-        <input type="radio" name="question4" id="Q4Answer2">
-        <label for="answer1">Answer 2</label>
-    </div>
-
+    <% }%>
     <div class="result-buttons">
       <h1>Results: <%= correctCount %>/<%= totalQuestions %> = <%= score %>%</h1>
       <button type="submit" id="submit">Share</button>
     </div>
-    </div>
+  </div>
     </form>
   </div>
 </section>
