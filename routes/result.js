@@ -1,21 +1,25 @@
 const express = require("express");
 const router = express.Router();
-const { getQuizByQuizId } = require("../db/queries/quiz");
+const { getQuizByQuizId, getQuizCorrectAnswers, } = require("../db/queries/quiz");
 const { getQuestionsByQuizId } = require("../db/queries/questions");
 const { getCorrectAnswers } = require("../db/queries/answers");
+
 
 //Load result page
 router.get("/:quizId", (req, res) => {
   const quizId = req.params.quizId;
-
-  getQuizByQuizId(quizId)
+  getQuizCorrectAnswers(quizId)
+  // getQuizByQuizId(quizId)
     .then((quiz) => {
+      console.log(quiz)
+      const data = answerDatabase[quizId]
       if (!quiz) {
         // Quiz not found
         res.status(404).send("Quiz does not exist!");
       } else {
         res.render("quizResults", {
           quiz,
+          ...data
         });
       }
     })
@@ -73,6 +77,8 @@ const compareAnswers = (userAnswers, correctAnswers) => {
   };
 };
 
+const answerDatabase = {}
+
 // Result page after quiz
 router.post("/:quizId", (req, res) => {
   const quizId = req.params.quizId;
@@ -88,26 +94,52 @@ router.post("/:quizId", (req, res) => {
 
   let comparisonResult;
 
-  getQuizByQuizId(quizId)
-    .then((quiz) => {
-      if (!quiz) {
-        res.status(404).send("Quiz does not exist!");
-      } else {
-        return getQuestionsByQuizId(quizId)
-          .then((questions) => {
-            // console.log({questions})
-            const questionIds = questions.map((question) => question.id);
-            return getCorrectAnswers(quizId, questionIds);
-            console.log("getCorrectAnswers", getCorrectAnswers)
-          })
+
+  getQuizCorrectAnswers(quizId)
+  // getQuizByQuizId(quizId)
+  //   .then((quiz) => {
+  //     if (!quiz) {
+  //       res.status(404).send("Quiz does not exist!");
+  //     } else {
+  //       getQuestionsByQuizId(quizId)
+  //         .then((questions) => {
+  //           const questionIds = questions.map((question) => question.id);
+  //           return getCorrectAnswers(quizId, questionIds);
+  //         })
+          .then(({correctAnswers, quiz}) => {
+
+//   getQuizByQuizId(quizId)
+//     .then((quiz) => {
+//       if (!quiz) {
+//         res.status(404).send("Quiz does not exist!");
+//       } else {
+//         return getQuestionsByQuizId(quizId)
+//           .then((questions) => {
+//             // console.log({questions})
+//             const questionIds = questions.map((question) => question.id);
+//             return getCorrectAnswers(quizId, questionIds);
+//             console.log("getCorrectAnswers", getCorrectAnswers)
+//           })
           .then((correctAnswers) => {
+
             // console.log("CA", correctAnswers);
             comparisonResult = compareAnswers(userAnswers, correctAnswers);
             // console.log("CR", comparisonResult);
             const { totalQuestions, correctCount, incorrectCount } =
               comparisonResult;
-
+            
             const score = calcScore(correctCount, totalQuestions);
+            
+            answerDatabase[quizId] = {
+              totalQuestions,
+              correctAnswers,
+              incorrectCount,
+              comparisonResult,
+              score,
+              userAnswers,
+              correctCount
+            } 
+
 
             //console.log(score);
 
@@ -135,15 +167,18 @@ router.post("/:quizId", (req, res) => {
               quiz,
             });
           })
-          .catch((err) => {
-            console.log(err);
-            throw err;
-          });
-      }
-    })
+          // .catch((err) => {
+          //   console.log(err);
+          //   throw err;
+          // });
+      // }
+    // })
     .catch((err) => {
       console.log(err);
-      throw err;
+      res.status(500).send("Error Occured")
+      // throw err;
     });
+    
 });
+
 module.exports = router;

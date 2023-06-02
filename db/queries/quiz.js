@@ -1,4 +1,6 @@
 const db = require('../connection');
+const { getCorrectAnswers } = require('./answers');
+const { getQuestionsByQuizId } = require('./questions');
 
 const getAllQuizzes = function() {
   return db
@@ -87,4 +89,22 @@ const addQuiz = function(userId, quizName, quizDesc, isPrivate) {
     });
 };
 
-module.exports = { getAllQuizzes, getQuizByQuizId, getQuizzesByUserId, addQuiz, getQuizByUserId };
+const getQuizCorrectAnswers = function(quizId) {
+  return getQuizByQuizId(quizId)
+    .then((quiz) => {
+      if (!quiz) {
+        throw new Error("Quiz does not exist!");
+      } else {
+         return getQuestionsByQuizId(quizId)
+          .then((questions) => {
+            const questionIds = questions.map((question) => question.id);
+            return getCorrectAnswers(quizId, questionIds);
+          })
+          .then((correctAnswers) => {
+            return {correctAnswers, quiz}
+          })
+      }
+  })       
+};
+
+module.exports = { getAllQuizzes, getQuizByQuizId, getQuizzesByUserId, addQuiz, getQuizByUserId, getQuizCorrectAnswers };
