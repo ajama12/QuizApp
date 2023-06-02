@@ -6,7 +6,6 @@ header {
   height: 120px;
   width: 100%;
   font-size: 60px;
-  position: fixed;
   z-index: 100;
   background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
   padding: 0 20px;
@@ -21,7 +20,6 @@ h2 {
 }
 
 .page-content {
-  position: fixed;
   top: 1px;
   align-items: center;
 }
@@ -71,14 +69,6 @@ input {
   border: 2px solid black;
 }
 
-.createQuizButton {
-  border: 2px solid black;
-}
-
-.false-answer {
-  border: 2px solid black;
-}
-
-.true-answer {
-  border: 2px solid black;
+.headerSpaceSection {
+  height: 150px;
 }

@@ -13,65 +13,63 @@
   </head>
   <body>
     <%- include('partials/_header') %>
-    <div class="content-wrapper">
-      <section class="page-content">
-        <h2 class="centered-header">Make Your Own Quiz Here!</h2>
-        <form
-          method="POST"
-          action="/createQuiz/<%= user.id %>"
-          class="quiz-submission-form"
-          id="quiz-submission-form"
-        >
-          <div class="question-form">
-            <label for="quiz_title">Quiz Title:</label>
-            <input type="text" name="quiz_title" id="quiz_title" />
-            <label for="quiz_description">Quiz Description:</label>
-            <input type="text" name="quiz_description" id="quiz_description" />
+    <section class="page-content">
+      <h2 style="font-weight: bold;">Make Your Own Quiz Here!</h2>
+      <form
+        method="POST"
+        action="/createQuiz/<%= user.id %>"
+        class="quiz-submission-form"
+        id="quiz-submission-form"
+      >
+        <div class="question-form">
+          <label for="quiz_title">Quiz Title:</label>
+          <input type="text" name="quiz_title" id="quiz_title" />
+          <label for="quiz_description">Quiz Description:</label>
+          <input type="text" name="quiz_description" id="quiz_description" />
 
-            <label for="question_1">Question 1:</label>
-            <input name="question_1" id="question_1" />
-            <label for="answer1_1">Correct Answer:</label>
-            <input name="answer1_1" class="true-answer" id="answer1_1" />
-            <label for="answer1_2">Incorrect Answer:</label>
-            <input name="answer1_2" class="false-answer" id="answer1_2" />
+          <label for="question_1">Question 1:</label>
+          <input name="question_1" id="question_1" />
+          <label for="answer1_1">Correct Answer:</label>
+          <input name="answer1_1" class="true-answer" id="answer1_1" />
+          <label for="answer1_2">Incorrect Answer:</label>
+          <input name="answer1_2" class="false-answer" id="answer1_2" />
 
-            <label for="question_2">Question 2:</label>
-            <input name="question_2" id="question_2" />
-            <label for="answer2_1">Correct Answer:</label>
-            <input name="answer2_1" class="true-answer" id="answer2_1" />
-            <label for="answer2_2">Incorrect Answer:</label>
-            <input name="answer2_2" class="false-answer" id="answer2_2" />
+          <label for="question_2">Question 2:</label>
+          <input name="question_2" id="question_2" />
+          <label for="answer2_1">Correct Answer:</label>
+          <input name="answer2_1" class="true-answer" id="answer2_1" />
+          <label for="answer2_2">Incorrect Answer:</label>
+          <input name="answer2_2" class="false-answer" id="answer2_2" />
 
-            <label for="question_3">Question 3:</label>
-            <input name="question_3" id="question_3" />
-            <label for="answer3_1">Correct Answer:</label>
-            <input name="answer3_1" class="true-answer" id="answer3_1" />
-            <label for="answer3_2">Incorrect Answer:</label>
-            <input name="answer3_2" class="false-answer" id="answer3_2" />
+          <label for="question_3">Question 3:</label>
+          <input name="question_3" id="question_3" />
+          <label for="answer3_1">Correct Answer:</label>
+          <input name="answer3_1" class="true-answer" id="answer3_1" />
+          <label for="answer3_2">Incorrect Answer:</label>
+          <input name="answer3_2" class="false-answer" id="answer3_2" />
 
-            <label for="question_4">Question 4:</label>
-            <input name="question_4" id="question_4" />
-            <label for="answer4_1">Correct Answer:</label>
-            <input name="answer4_1" class="true-answer" id="answer4_1" />
-            <label for="answer4_2">Incorrect Answer:</label>
-            <input name="answer4_2" class="false-answer" id="answer4_2" />
+          <label for="question_4">Question 4:</label>
+          <input name="question_4" id="question_4" />
+          <label for="answer4_1">Correct Answer:</label>
+          <input name="answer4_1" class="true-answer" id="answer4_1" />
+          <label for="answer4_2">Incorrect Answer:</label>
+          <input name="answer4_2" class="false-answer" id="answer4_2" />
 
-            <label for="question_5">Question 5:</label>
-            <input name="question_5" id="question_5" />
-            <label for="answer5_1">Correct Answer:</label>
-            <input name="answer5_1" class="true-answer" id="answer5_1" />
-            <label for="answer5_2">Incorrect Answer:</label>
-            <input name="answer5_2" class="false-answer" id="answer5_2" />
+          <label for="question_5">Question 5:</label>
+          <input name="question_5" id="question_5" />
+          <label for="answer5_1">Correct Answer:</label>
+          <input name="answer5_1" class="true-answer" id="answer5_1" />
+          <label for="answer5_2">Incorrect Answer:</label>
+          <input name="answer5_2" class="false-answer" id="answer5_2" />
 
-            <div class="public_private">
-              <label for="private">Private:</label>
-              <input type="radio" name="quiz_private" id="private" />
-            </div>
-
-            <button type="submit" id="submit" class="submitQuizButton">Create Quiz!</button>
+          <div class="public_private">
+            <label for="private">Private:</label>
+            <input type="radio" name="quiz_private" id="private" />
           </div>
-        </form>
-      </section>
-    </div>
+
+          <button type="submit" id="submit">Create Quiz!</button>
+        </div>
+      </form>
+    </section>
   </body>
 </html>
