@@ -1,4 +1,16 @@
 $(document).ready(() => {
+  
+  $("#urlLink").click(function(){
+    var dummy = document.createElement('input'),
+    text = window.location.href;
+    document.body.appendChild(dummy);
+    dummy.value = text;
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
+});
+
+ 
   $('#submit').click(() => {
     const quizId = window.location.pathname.split('/').pop();
     const answers = [];
@@ -13,7 +25,6 @@ $(document).ready(() => {
         answer: selectedAnswer,
       });
     });
-
     // Send answers to the server for result calculation
     $.ajax({
       url: `/result/${quizId}`,
@@ -28,4 +39,7 @@ $(document).ready(() => {
       },
     });
   });
+  
+  
+
 });
