@@ -1,14 +1,14 @@
 // Client facing scripts here
 
 $(document).ready(() => {
-
-  const userId = $("#user-id").data('userId');
+  const userId = $("#user-id").data("userId");
 
   //create user info template
-  const userInfo = function(user) {
+  const userInfo = function (user) {
     return `
-        <h1>${user.username}</h1>
-        <h1>${user.email}</h1>
+      <h1>User Information</h1>
+      <p>${user.username}</p>
+      <p>${user.email}</p>
       `;
   };
 
@@ -27,18 +27,17 @@ $(document).ready(() => {
       },
       error: (err) => {
         console.log("Err", err);
-      }
+      },
     };
     $.ajax(config);
-
   };
 
   //create history template
-  const createHistoryInfo = function(history) {
+  const createHistoryInfo = function (history) {
     return `
-    <h2></h2>
-    <p> Quiz: ${history.quiz_name} </p>
+    <h1>My Quiz History</h1>
     <p> Percentage: ${history.recent_score}%</p>
+    <p> Quiz: ${history.quiz_name} </p>
       `;
   };
 
@@ -65,10 +64,9 @@ $(document).ready(() => {
       },
       error: (err) => {
         console.log("Err", err);
-      }
+      },
     };
     $.ajax(config);
-
   };
 
   const myQuizzesContainer = $("#my-quizzes-container");
@@ -96,10 +94,9 @@ $(document).ready(() => {
       },
       error: (err) => {
         console.log("Err", err);
-      }
+      },
     };
     $.ajax(config);
-
   };
 
   getUserInfo();
@@ -107,8 +104,4 @@ $(document).ready(() => {
   fetchUserHistory();
 
   getUserQuizzes();
-
 });
-
-
-
