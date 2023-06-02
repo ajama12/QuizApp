@@ -67,4 +67,22 @@ const addHistory = function(userId, quizId, recentScore) {
     });
 };
 
-module.exports = { getHistoryByUserId, getHistoryByQuizId, getUserHistory, addHistory };
+const getHistoryById = function (id) {
+  return db
+  .query(`SELECT *
+  FROM history
+  WHERE id = $1`, [id])
+  .then((result) => {
+    if (result.rows.length === 0) {
+      return null;
+    } else {
+      return result.rows;
+    }
+  })
+  .catch((err) => {
+    console.log(err);
+    throw err;
+  });
+};
+
+module.exports = { getHistoryByUserId, getHistoryByQuizId, getUserHistory, addHistory, getHistoryById };

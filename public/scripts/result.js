@@ -15,10 +15,10 @@ $(document).ready(() => {
     const quizId = window.location.pathname.split('/').pop();
     const answers = [];
 
-    // Get selected answers for each question
-    $('.quiz-questions .question').each((index, question) => {
-      const questionId = $(question).data('question-id');
-      const selectedAnswer = $(question).find('input[type=radio]:checked').val();
+  //   // Get selected answers for each question
+  //   $('.quiz-questions .question').each((index, question) => {
+  //     const questionId = $(question).data('question-id');
+  //     const selectedAnswer = $(question).find('input[type=radio]:checked').val();
 
       answers.push({
         question_id: questionId,
@@ -40,6 +40,7 @@ $(document).ready(() => {
     });
   });
   
-  
 
 });
+
+
