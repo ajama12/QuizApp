@@ -7,8 +7,10 @@ const { addAnswer } = require("../db/queries/answers.js");
 //load create quiz page
 router.get("/:user_id", (req, res) => {
   const user = { id: req.session.userId };
+  console.log("req.session", req.session)
   const templateVars = { user };
   res.render("createQuiz", templateVars);
+  // console.log("templateVars", templateVars)
 });
 
 //Create a new quiz
