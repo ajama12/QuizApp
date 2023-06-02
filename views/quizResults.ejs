@@ -25,7 +25,7 @@
     <div class="user-answer">
       <% for (const answer of userAnswers) { %>
         <div class="userAnswer">
-          <h1 class="answerTitle">User Answers <%= answer.question_id %> </h1>
+          <h1 class="answerTitle">Your Answer <%= answer.question_id %>: </h1>
           <label for="user_answer1"><%= answer.answer %></label><br>
         </div>
         <% }%>
@@ -34,7 +34,7 @@
     <div class="quiz-answers">
       <% for (const answer of correctAnswers) { %>
         <div class="answer">
-          <h1 class="answerTitle">Correct Answers <%= answer.question_id %> </h1>
+          <h1 class="answerTitle">Correct Answer <%= answer.question_id %>: </h1>
           <label for="quiz_answer1"><%= answer.answer%></label><br>
         </div>
         <% }%>
