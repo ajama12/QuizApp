@@ -35,11 +35,19 @@ const calcScore = (correctAnswers, totalQuestions) => {
 
 //Compare user answers with correct answers
 const compareAnswers = (userAnswers, correctAnswers) => {
+  console.log("hitting compareAnswers");
+  console.log(typeof userAnswers);
+
+  const parsedUserAnswers = JSON.parse(userAnswers);
+
+  console.log(correctAnswers);
   let correctCount = 0;
   let incorrectCount = 0;
 
-  userAnswers.forEach((userAnswer) => {
+  parsedUserAnswers.forEach((userAnswer) => {
+    // console.log("UA", userAnswer);
     const correspondingCorrectAns = correctAnswers.find((correctAnswer) => {
+      // console.log("CCA", correspondingCorrectAns);
       return correctAnswer.question_id === userAnswer.question_id;
     });
     if (correspondingCorrectAns) {
@@ -51,7 +59,7 @@ const compareAnswers = (userAnswers, correctAnswers) => {
     }
   });
 
-  const totalQuestions = userAnswers.length;
+  const totalQuestions = parsedUserAnswers.length;
 
   return {
     totalQuestions,
@@ -62,13 +70,15 @@ const compareAnswers = (userAnswers, correctAnswers) => {
 
 
 // Result page after quiz
-router.post('/:quizId', (req, res) => {
+router.post('/:quizId', async(req, res) => {
   const quizId = req.params.quizId;
   const userAnswers = req.body.answers;
+  // console.log(req.body.answers);
+  // console.log("UA", userAnswers);
 
   let comparisonResult;
 
-  getQuizByQuizId(quizId)
+  await getQuizByQuizId(quizId)
     .then((quiz) => {
       if (!quiz) {
         res.status(404).send('Quiz does not exist!');
@@ -79,11 +89,18 @@ router.post('/:quizId', (req, res) => {
             return getCorrectAnswers(quizId, questionIds);
           })
           .then((correctAnswers) => {
+            // console.log("CA", correctAnswers);
             comparisonResult = compareAnswers(userAnswers, correctAnswers);
 
             const { totalQuestions, correctCount, incorrectCount } = comparisonResult;
 
             const score = Math.round((correctCount / totalQuestions) * 100);
+
+            console.log("quiz", quiz);
+            console.log("correctCount", correctCount);
+            console.log("score", score);
+            console.log("incorrectCount", incorrectCount);
+            console.log("totalQuestions", totalQuestions);
 
             res.render('quizResults', {
               quiz,
