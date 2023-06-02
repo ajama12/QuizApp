@@ -94,6 +94,7 @@ router.post("/:quizId", (req, res) => {
 
   let comparisonResult;
 
+
   getQuizCorrectAnswers(quizId)
   // getQuizByQuizId(quizId)
   //   .then((quiz) => {
@@ -106,6 +107,21 @@ router.post("/:quizId", (req, res) => {
   //           return getCorrectAnswers(quizId, questionIds);
   //         })
           .then(({correctAnswers, quiz}) => {
+
+//   getQuizByQuizId(quizId)
+//     .then((quiz) => {
+//       if (!quiz) {
+//         res.status(404).send("Quiz does not exist!");
+//       } else {
+//         return getQuestionsByQuizId(quizId)
+//           .then((questions) => {
+//             // console.log({questions})
+//             const questionIds = questions.map((question) => question.id);
+//             return getCorrectAnswers(quizId, questionIds);
+//             console.log("getCorrectAnswers", getCorrectAnswers)
+//           })
+          .then((correctAnswers) => {
+
             // console.log("CA", correctAnswers);
             comparisonResult = compareAnswers(userAnswers, correctAnswers);
             // console.log("CR", comparisonResult);

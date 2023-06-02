@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  
+
   $("#urlLink").click(function(){
     var dummy = document.createElement('input'),
     text = window.location.href;
@@ -11,7 +11,7 @@ $(document).ready(() => {
     alert('URL Copied!');
   });
 
- 
+
   $('#submit').click(() => {
     const quizId = window.location.pathname.split('/').pop();
     const answers = [];
@@ -40,3 +40,4 @@ $(document).ready(() => {
       },
     });
 });
+
