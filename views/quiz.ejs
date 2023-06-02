@@ -6,15 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/quiz.css" />
-  
-  <script src="/vendor/jquery-3.0.0.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script defer src="/scripts/quiz.js"></script>
   <title>Quiz Attempt</title>
 </head>
 
 <body>
   <%- include('partials/_header') %>
-    <form action="/result/<%=quiz.Id%>" method="POST" id="quizForm">
+    <form action="/result/<%= quiz.id%>" method="POST" id="quizForm">
       <section class="page-content">
         <div class="page-form">
           <h1>
@@ -23,17 +23,15 @@
           <h1>
             <%= quiz.quiz_desc%>
           </h1>
-
           <button type="submit" id="submitQuiz">Submit Quiz</button>
         </div>
         <div class="quiz-questions">
-          <h2>Questions Details</h2>
           <% for (const question of questions) { %>
             <div class="question">
               <label for="quiz_description<%= question.id %>"><%= question.question_prompt %></label>
               <label for="quiz_description1"><%= question.question_desc %></label><br>
               <% for (let i = 0; i < question.answers.length; i++) { %>
-                <input type="radio" name="question<%= question.id %>" id="Q<%= question.id %>Answer<%= i %>">
+                <input value="<%=question.answers[i].answer%>" type="radio" name="<%= question.id %>" id="Q<%= question.id %>Answer<%= i %>">
                 <label for="question<%= question.id %>"><%= question.answers[i].answer %></label>
               <% }%>
             </div>
