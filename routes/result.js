@@ -14,7 +14,9 @@ router.get('/:quizId', (req, res) => {
         // Quiz not found
         res.status(404).send('Quiz does not exist!');
       } else {
-        res.render('quizResults', { quiz });
+        res.render('quizResults', {
+          quiz,
+        });
       }
     })
     .catch((err) => {
@@ -38,10 +40,17 @@ const compareAnswers = (userAnswers, correctAnswers) => {
   let correctCount = 0;
   let incorrectCount = 0;
 
+  console.log("CA", correctAnswers);
+  console.log("UA", userAnswers);
+
   userAnswers.forEach((userAnswer) => {
     const correspondingCorrectAns = correctAnswers.find((correctAnswer) => {
+      console.log("CAQI", correctAnswer.question_id);
+      console.log("UAQI", userAnswer.question_id);
       return correctAnswer.question_id === userAnswer.question_id;
     });
+    console.log("CCA", correspondingCorrectAns);
+    console.log("UA", userAnswers);
     if (correspondingCorrectAns) {
       if (userAnswer.answer === correspondingCorrectAns.answer) {
         correctCount++;
@@ -65,9 +74,7 @@ const compareAnswers = (userAnswers, correctAnswers) => {
 router.post('/:quizId', (req, res) => {
   const quizId = req.params.quizId;
   const userAnswers = req.body.answers;
-
-  const correctAnswersArray = [];
-
+  console.log(userAnswers);
 
   let comparisonResult;
 
@@ -82,19 +89,15 @@ router.post('/:quizId', (req, res) => {
             return getCorrectAnswers(quizId, questionIds);
           })
           .then((correctAnswers) => {
-            for (answer of correctAnswers) {
-              correctAnswersArray.push(answer.answer);
-            }
-
-            console.log("correctAnswersArray" , correctAnswersArray);
-            comparisonResult = compareAnswers(userAnswers, correctAnswersArray);
-
+            comparisonResult = compareAnswers(userAnswers, correctAnswers);
+            console.log("CR", comparisonResult);
             const { totalQuestions, correctCount, incorrectCount } = comparisonResult;
 
-            const score = Math.round((correctCount / totalQuestions) * 100);
+            const score = calcScore(correctCount, totalQuestions);
+
+            //console.log(score);
 
             res.render('quizResults', {
-              quiz,
               score,
               correctCount,
               incorrectCount,
@@ -103,16 +106,15 @@ router.post('/:quizId', (req, res) => {
           })
           .catch((err) => {
             console.log(err);
-            res.status(500).send('Something went wrong while calculating the quiz results.');
+            throw err;
           });
       }
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).send('Something went wrong while retrieving the quiz.');
+      throw err;
     });
 });
 
 
 module.exports = router;
-
