@@ -7,8 +7,6 @@ router.get('/', (req, res) => {
   getAllQuizzes()
     .then((quizzes) => {
       const templateVars = {quizzes};
-      // console.log(quizzes);
-      // console.log(typeof quizzes);
       res.render('index', templateVars);
     })
     .catch((err) => {
@@ -22,11 +20,9 @@ router.get("/api/quizzes", (req, res) => {
   getAllQuizzes()
     .then((quizzes) => {
       const stringifyQuizzes = JSON.stringify(quizzes);
-      // console.log(stringifyQuizzes);
       res.send(stringifyQuizzes);
     })
-    .catch((err) => {
-      // console.log(err);
+    .catch(() => {
       res.status(500).send('An error occurred while retrieving quizzes.');
     });
 });

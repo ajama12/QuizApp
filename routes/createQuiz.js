@@ -13,15 +13,12 @@ router.get("/:user_id", (req, res) => {
 
 //Create a new quiz
 router.post("/:user_id", async(req, res) => {
-  // console.log(req.body);
-  // console.log(req.session.userId);
   const userId = req.session.userId;
   if (userId) {
     try {
       const { quizName, quizDesc, isPrivate, questions } = req.body;
       const quizResult = await addQuiz(userId, quizName, quizDesc, isPrivate);
       const quizId = quizResult.id;
-      // console.log(quizId);
 
       for (let question of questions) {
         const prompt = question.questionPrompt;

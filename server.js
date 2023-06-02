@@ -18,7 +18,7 @@ app.set('view engine', 'ejs');
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cookieSession({
     name: "user-session",
@@ -59,8 +59,6 @@ app.use('/createQuiz', createQuizRoutes);
 app.use('/quiz', quizRoutes);
 app.use('/result', resultRoutes);
 app.use('/logout', logoutRoutes);
-app.use('/api/questions', questionsRoutes);
-// app.use('/api/answers', answersRoutes)
 app.use('/', homepageRoutes);
 // Note: mount other resources here, using the same pattern above
 
