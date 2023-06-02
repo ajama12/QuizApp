@@ -90,17 +90,22 @@ const addQuiz = function(userId, quizName, quizDesc, isPrivate) {
 };
 
 const getQuizCorrectAnswers = function(quizId) {
+  // console.log('QuizId', quizId)
   return getQuizByQuizId(quizId)
     .then((quiz) => {
+      // console.log('Quiz', quiz)
       if (!quiz) {
         throw new Error("Quiz does not exist!");
       } else {
          return getQuestionsByQuizId(quizId)
           .then((questions) => {
+            // console.log('Questions', questions)
             const questionIds = questions.map((question) => question.id);
+            // console.log('Questions ID', questionIds)
             return getCorrectAnswers(quizId, questionIds);
           })
           .then((correctAnswers) => {
+            // console.log('Correct Answers', correctAnswers)
             return {correctAnswers, quiz}
           })
       }

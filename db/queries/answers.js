@@ -20,7 +20,7 @@ const getAnswersByQuestionId = function(questionId) {
 };
 
 const getCorrectAnswers = function(quizId, questionIds) {
-  const promises = questionIds.map((questionId) => {
+  const answerOutput = questionIds.map((questionId) => {
     return db
       .query(`SELECT *
       FROM answers
@@ -40,7 +40,7 @@ const getCorrectAnswers = function(quizId, questionIds) {
         throw err;
       });
   });
-  return Promise.all(promises);
+  return Promise.all(answerOutput);
 };
 
 const addAnswer = function(quizId, questionId, answer, isCorrect) {
