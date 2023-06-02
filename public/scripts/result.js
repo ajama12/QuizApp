@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  
+
   $("#urlLink").click(function(){
     var dummy = document.createElement('input'),
     text = window.location.href;
@@ -10,7 +10,7 @@ $(document).ready(() => {
     document.body.removeChild(dummy);
 });
 
- 
+
   $('#submit').click(() => {
     const quizId = window.location.pathname.split('/').pop();
     const answers = [];
@@ -38,9 +38,7 @@ $(document).ready(() => {
         console.log(error);
       },
     });
-  });
-  
-
 });
+
 
 

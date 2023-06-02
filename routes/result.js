@@ -93,10 +93,12 @@ router.post("/:quizId", (req, res) => {
       if (!quiz) {
         res.status(404).send("Quiz does not exist!");
       } else {
-        getQuestionsByQuizId(quizId)
+        return getQuestionsByQuizId(quizId)
           .then((questions) => {
+            // console.log({questions})
             const questionIds = questions.map((question) => question.id);
             return getCorrectAnswers(quizId, questionIds);
+            console.log("getCorrectAnswers", getCorrectAnswers)
           })
           .then((correctAnswers) => {
             // console.log("CA", correctAnswers);
