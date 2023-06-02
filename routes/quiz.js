@@ -3,6 +3,7 @@ const router = express.Router();
 const { getQuizByQuizId } = require('../db/queries/quiz');
 const { getQuestionsByQuizId } = require('../db/queries/questions');
 const { getAnswersByQuestionId } = require('../db/queries/answers');
+const { getCorrectAnswers } = require('../db/queries/answers');
 
 //Load specific quiz page
 router.get('/:quizId', (req, res) => {
