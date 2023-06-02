@@ -1,6 +1,13 @@
 $(document).ready(() => {
   const userId = $("#user-id").attr("data-user-id");
 
+  // let privateChecked = false;
+
+  // $("#private").on("click", function () {
+  //   privateChecked = !privateChecked;
+  //   $(this).prop("checked", privateChecked);
+  // });
+
   //when we submit the form
   $("#quiz-submission-form").submit((event) => {
     event.preventDefault();
@@ -15,36 +22,36 @@ $(document).ready(() => {
           {
             questionPrompt: $("#question_1").val().trim(),
             answers: [
-              {answer: $("#answer1_1").val().trim(), isCorrect: true},
-              {answer: $("#answer1_2").val().trim(), isCorrect: false},
+              { answer: $("#answer1_1").val().trim(), isCorrect: true },
+              { answer: $("#answer1_2").val().trim(), isCorrect: false },
             ],
           },
           {
             questionPrompt: $("#question_2").val().trim(),
             answers: [
-              {answer: $("#answer2_1").val().trim(), isCorrect: true },
-              {answer: $("#answer2_2").val().trim(), isCorrect: false },
+              { answer: $("#answer2_1").val().trim(), isCorrect: true },
+              { answer: $("#answer2_2").val().trim(), isCorrect: false },
             ],
           },
           {
             questionPrompt: $("#question_3").val().trim(),
             answers: [
-              {answer: $("#answer3_1").val().trim(), isCorrect: true },
-              {answer: $("#answer3_2").val().trim(), isCorrect: false },
+              { answer: $("#answer3_1").val().trim(), isCorrect: true },
+              { answer: $("#answer3_2").val().trim(), isCorrect: false },
             ],
           },
           {
             questionPrompt: $("#question_4").val().trim(),
             answers: [
-              {answer: $("#answer4_1").val().trim(), isCorrect: true },
-              {answer: $("#answer4_2").val().trim(), isCorrect: false },
+              { answer: $("#answer4_1").val().trim(), isCorrect: true },
+              { answer: $("#answer4_2").val().trim(), isCorrect: false },
             ],
           },
           {
             questionPrompt: $("#question_5").val().trim(),
             answers: [
-              {answer: $("#answer5_1").val().trim(), isCorrect: true },
-              {answer: $("#answer5_2").val().trim(), isCorrect: false },
+              { answer: $("#answer5_1").val().trim(), isCorrect: true },
+              { answer: $("#answer5_2").val().trim(), isCorrect: false },
             ],
           },
         ],
@@ -57,7 +64,7 @@ $(document).ready(() => {
         success: (quizId) => {
           console.log("Successfully created quiz!");
           const quizIdObj = JSON.parse(quizId);
-          location.href = '/quiz/' + quizIdObj;
+          location.href = "/quiz/" + quizIdObj;
         },
         error: (err) => {
           console.log("Err", err);
@@ -69,6 +76,5 @@ $(document).ready(() => {
 
     postNewQuiz();
   });
-
 
 });

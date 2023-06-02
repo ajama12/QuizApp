@@ -5,10 +5,11 @@ header {
 
 .page-content {
   display: flex;
-  margin: 200px;
+  justify-content: space-around;
+  flex-direction: row;
   padding: 20px;
-  border: 2px solid black  ;
 }
+
 
 .page-form {
   display: flex;
@@ -37,14 +38,15 @@ header {
   gap: 20px;
 }
 
-.page-content button {
-  display: flex;
+.quiz-btn {
   color: white;
-  background-color: #000000;
+  background-color: #808080;
+  border: 2px solid black;
   border-radius: 10px;
   justify-content: space-between;
   align-items: center;
   font-size: 25px;
+  padding: 10px 20px;
 }
 
 .quiz-box {

@@ -13,10 +13,11 @@ header {
   justify-content: space-between;
   align-items: center;
   top: 0px;
-  height: 120px;
+  height: 150px;
   width: 100%;
   background-color: #8a8d91;
   background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+  border: 2px solid black;
   position: fixed;
   z-index: 100;
   padding: 0 20px;
@@ -44,6 +45,7 @@ header {
   height: 100px;
   background-size: cover;
   border-radius: 50%;
+  border: 2px solid black;
 }
 
 .header-buttons {
@@ -82,4 +84,8 @@ input, button {
   padding: 10px;
   box-sizing: border-box;
   border-radius: 7px;
+}
+
+#manlogo {
+  border: 2px solid black;
 }
