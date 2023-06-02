@@ -2,17 +2,17 @@
 
 $(document).ready(() => {
   const userId = $("#user-id").data("userId");
+  const userInfoBox = $(".user-info-box");
+  const quizHistoryContainer = $(".quiz-history-container");
+  const userContentBox = $("#user-info-box .user-info-content");
 
   //create user info template
   const userInfo = function (user) {
     return `
-      <h1>User Information</h1>
       <p>${user.username}</p>
       <p>${user.email}</p>
       `;
   };
-
-  const userInfoBox = $("#user-info-box");
 
   //ajax request to get user
   const getUserInfo = () => {
@@ -24,6 +24,8 @@ $(document).ready(() => {
         console.log(user);
         const userObj = JSON.parse(user);
         userInfoBox.empty().append(userInfo(userObj));
+        // Append user info to 'user-info-content'
+        userContentBox.empty().append(userInfo(userObj));
       },
       error: (err) => {
         console.log("Err", err);
@@ -35,18 +37,16 @@ $(document).ready(() => {
   //create history template
   const createHistoryInfo = function (history) {
     return `
-    <h1>My Quiz History</h1>
-    <p> Percentage: ${history.recent_score}%</p>
-    <p> Quiz: ${history.quiz_name} </p>
+      <p> Quiz: ${history.quiz_name} </p>
+      <p> Percentage: ${history.recent_score}%</p>
       `;
   };
 
-  const quizHistoryContainer = $("#quiz-history-container");
-
-  //create seperate history lines
+  //create separate history lines
   const createHistoryBox = (history) => {
     quizHistoryContainer.empty();
     history.forEach((historyInfo) => {
+      // append history info to 'quiz-history-container'
       quizHistoryContainer.append(createHistoryInfo(historyInfo));
     });
   };
@@ -57,9 +57,7 @@ $(document).ready(() => {
       method: "GET",
       url: `/user/getUserHistory/${userId}`,
       success: (history) => {
-        // console.log("Successfully retrieved user history");
         const userHistory = JSON.parse(history);
-        // console.log(userHistory);
         createHistoryBox(userHistory);
       },
       error: (err) => {
