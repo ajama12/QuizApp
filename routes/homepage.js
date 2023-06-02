@@ -22,7 +22,7 @@ router.get("/api/quizzes", (req, res) => {
       const stringifyQuizzes = JSON.stringify(quizzes);
       res.send(stringifyQuizzes);
     })
-    .catch((err) => {
+    .catch(() => {
       res.status(500).send('An error occurred while retrieving quizzes.');
     });
 });

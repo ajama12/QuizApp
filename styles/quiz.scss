@@ -17,45 +17,62 @@ header {
 
 .page-content {
   display: flex;
-  margin-top: 120px;
-  height: 672px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px;
 }
 
-.question-form {
-  display: flex;
-  flex-direction: column;
-  font-size: 20px;
-  font-family: 'Mukta', sans-serif;
-
-
+.page-form {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .quiz-questions {
+  width: 100%;
+  max-width: 600px;
+}
+
+label {
+  display: in-line-flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+  display: inline-flex;
+}
+
+#submitQuiz {
+  width: 40%;
+  padding: 10px 20px;
+  background-color: #dfdede;
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.question {
+  margin-bottom: 20px;
+  border: 2px solid black;
+  background-color: #dfdede;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
-
-  padding: 20px;
-  width: 1320px;
   align-items: center;
 }
-.page-form {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
 
-  width: 25%;
+.question label {
+  margin-bottom: 10px;
+  display: inline-flex;
 }
 
-
-section {
-  width: 100%;;
+.question input[type="radio"] {
+  margin-right: 10px;
+  display: inline-flex;
 }
-
-// button[for="quiz_description1"]  {
-//   font-size: 35px;
-// }
-
-// label[for="quiz_description1"]  {
-//   border-style: solid;
-//   font-size: 10px;
-// }
