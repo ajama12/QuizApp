@@ -120,7 +120,7 @@ router.post("/:quizId", (req, res) => {
             // console.log("score", score);
             // console.log("incorrectCount", incorrectCount);
             // console.log("totalQuestions", totalQuestions);
-            // console.log("userAnswers", userAnswers);
+            console.log("userAnswers", userAnswers);
 
 
             res.render("quizResults", {

@@ -22,7 +22,6 @@
     <h1>
       <%= quiz.quiz_desc%>
     </h1>
-
     <div class="user-answer">
       <% for (const answer of userAnswers) { %>
         <div class="userAnswer">
@@ -35,18 +34,16 @@
     <div class="quiz-answers">
       <% for (const answer of correctAnswers) { %>
         <div class="answer">
-          <h1>Correct Answer for <%= answer.question_id %> </h1>
+          <h1>Correct Answers <%= answer.question_id %> </h1>
           <label for="quiz_answer1"><%= answer.answer%></label><br>
         </div>
         <% }%>
     </div>
-    
     <div class="result-buttons">
       <h1>Results: <%= correctCount %>/<%= totalQuestions %> = <%= score %>%</h1>
       <button type="button" id="urlLink">Share</button>
     </div>
   </div>
-    </form>
   </div>
 </section>
 </body>
