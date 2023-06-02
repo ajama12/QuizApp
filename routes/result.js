@@ -92,7 +92,7 @@ router.post('/:quizId', async(req, res) => {
             const questionIds = questions.map((question) => question.id);
             return getCorrectAnswers(quizId, questionIds);
           })
-          .then((correctAnswers) => 
+          .then((correctAnswers) => {
             // console.log("CA", correctAnswers);
             comparisonResult = compareAnswers(userAnswers, correctAnswers);
             console.log("CR", comparisonResult);

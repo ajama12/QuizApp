@@ -41,5 +41,30 @@ body {
 
 #submit.login-button{
   background-color: #c9c9c9;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+#email {
+  border: 2px solid black;
+}
+
+#password {
+  border: 2px solid black;
+}
+
+.emailH2 {
+ padding: 0px;
+ margin: 0px;
+}
+
+.passwordH2 {
+ padding: 0px;
+ margin: 0px;
+}
+
+.loginH1 {
+  margin: 15px;
+}
