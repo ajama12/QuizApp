@@ -42,6 +42,6 @@ router.get('/:quizId', (req, res) => {
 
 router.post('/:quizId', (req, res) => {
   res.render(`/result/${req.params.quizId}`);
-})
+});
 
 module.exports = router;
