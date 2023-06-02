@@ -32,7 +32,7 @@
               <label for="quiz_description<%= question.id %>"><%= question.question_prompt %></label>
               <label for="quiz_description1"><%= question.question_desc %></label><br>
               <% for (let i = 0; i < question.answers.length; i++) { %>
-                <input value="<%=question.answers[i].answer%>" type="radio" name="question<%= question.id %>" id="Q<%= question.id %>Answer<%= i %>">
+                <input value="<%=question.answers[i].answer%>" type="radio" name="<%= question.id %>" id="Q<%= question.id %>Answer<%= i %>">
                 <label for="question<%= question.id %>"><%= question.answers[i].answer %></label>
               <% }%>
             </div>
