@@ -11,8 +11,11 @@ router.get("/:quizId", (req, res) => {
   getQuizCorrectAnswers(quizId)
   // getQuizByQuizId(quizId)
     .then((quiz) => {
-      console.log(quiz)
+      // console.log('Quiz', quiz)
       const data = answerDatabase[quizId]
+      // console.log('Data', data)
+      const data2 = {quiz, ...data}
+      // console.log('Data2', data2)
       if (!quiz) {
         // Quiz not found
         res.status(404).send("Quiz does not exist!");
@@ -48,7 +51,7 @@ const compareAnswers = (userAnswers, correctAnswers) => {
   let correctCount = 0;
   let incorrectCount = 0;
 
-  console.log("correctAnswers", correctAnswers);
+  // console.log("correctAnswers", correctAnswers);
   parsedUserAnswers.forEach((userAnswer) => {
     // const correspondingCorrectAns = correctAnswers.find((correctAnswer) => {
     //   console.log(correctAnswer, userAnswer);
@@ -81,6 +84,7 @@ const answerDatabase = {}
 
 // Result page after quiz
 router.post("/:quizId", (req, res) => {
+  
   const quizId = req.params.quizId;
   const userAnswers = [];
   for(const key in req.body){
@@ -108,7 +112,7 @@ router.post("/:quizId", (req, res) => {
   //         })
           .then(({correctAnswers, quiz}) => {
             // console.log("CA", correctAnswers);
-            console.log(correctAnswers)
+            // console.log(correctAnswers)
             comparisonResult = compareAnswers(userAnswers, correctAnswers);
             
             // console.log("CR", comparisonResult);
@@ -118,19 +122,27 @@ router.post("/:quizId", (req, res) => {
             const score = calcScore(correctCount, totalQuestions);
             
             answerDatabase[quizId] = {
-              totalQuestions,
               correctAnswers,
-              incorrectCount,
-              comparisonResult,
-              score,
               userAnswers,
-              correctCount
+              score,
+              correctCount,
+              incorrectCount,
+              totalQuestions,
+              quiz,
+              comparisonResult
+              // totalQuestions,
+              // correctAnswers,
+              // incorrectCount,
+              // comparisonResult,
+              // score,
+              // userAnswers,
+              // correctCount
             } 
 
 
             //console.log(score);
 
-            console.log("quiz", quiz);
+            // console.log("quiz", quiz);
             // console.log("correctCount", correctCount);
             // console.log("score", score);
             // console.log("incorrectCount", incorrectCount);
@@ -141,8 +153,8 @@ router.post("/:quizId", (req, res) => {
             // console.log("score", score);
             // console.log("incorrectCount", incorrectCount);
             // console.log("totalQuestions", totalQuestions);
-            console.log("userAnswers", userAnswers);
-
+            // console.log("userAnswers", userAnswers);
+            // res.redirect(`/result/${quizId}`)
 
             res.render("quizResults", {
               correctAnswers,
@@ -152,6 +164,7 @@ router.post("/:quizId", (req, res) => {
               incorrectCount,
               totalQuestions,
               quiz,
+              comparisonResult
             });
           })
           // .catch((err) => {

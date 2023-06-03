@@ -4,10 +4,10 @@ const { getQuestionsByQuizId } = require('../db/queries/questions');
 
 //Load specific quiz page
 router.get('/:quizId', (req, res) => {
-  console.log('Question Routes requested')
+  // console.log('Question Routes requested')
   getQuestionsByQuizId(req.params.quizId)
     .then((questions) => {
-      console.log('questions', questions);
+      // console.log('questions', questions);
       // const templateVars = {quiz, quizId: req.params.quizId };
       // res.render('quiz', templateVars);
       res.json(questions)
