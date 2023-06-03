@@ -12,7 +12,7 @@ router.get('/:quizId', (req, res) => {
       // const templateVars = {quiz, quizId: req.params.quizId };
       // res.render('quiz', templateVars);
       res.json(answer);
-     
+
     })
     .catch((err) => {
       console.log(err);

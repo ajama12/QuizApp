@@ -1,13 +1,6 @@
 $(document).ready(() => {
   const userId = $("#user-id").attr("data-user-id");
 
-  // let privateChecked = false;
-
-  // $("#private").on("click", function () {
-  //   privateChecked = !privateChecked;
-  //   $(this).prop("checked", privateChecked);
-  // });
-
   //when we submit the form
   $("#quiz-submission-form").submit((event) => {
     event.preventDefault();
@@ -64,7 +57,8 @@ $(document).ready(() => {
         success: (quizId) => {
           console.log("Successfully created quiz!");
           const quizIdObj = JSON.parse(quizId);
-          location.href = "/quiz/" + quizIdObj;
+          location.href = "/";
+          // location.href = "/quiz/" + quizIdObj;
         },
         error: (err) => {
           console.log("Err", err);
