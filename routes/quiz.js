@@ -17,19 +17,19 @@ router.get('/:quizId', (req, res) => {
     ]
   ).then(async all => {
     const quiz = all[1];
-    console.log("quiz", quiz);
+    // console.log("quiz", quiz);
     const justQuestions = all[0];
     const questions = [];
     for (const question of justQuestions) {
       const answersOfSpecificQuestion = await getAnswersByQuestionId(question.id);
-      console.log("answersOfSpecificQuestion", answersOfSpecificQuestion);
+      // console.log("answersOfSpecificQuestion", answersOfSpecificQuestion);
       questions.push({
         ...question,
         answers: answersOfSpecificQuestion
       })
     }
 
-    console.log("questions", questions)
+    // console.log("questions", questions)
     const templateVars = {
       questions,
       quiz: all[1],
